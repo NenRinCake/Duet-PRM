@@ -1,0 +1,48 @@
+export VLLM_USE_V1=0
+python generate.py --data /public/home/ljt/lzm/code/Qwen2.5-Math/evaluation/data/math/test.jsonl 2>&1 | tee error.log
+python sample_minimal.py --model /public/home/ljt/lzm/model/Qwen3-8B --problems /public/home/ljt/lzm/code/Qwen2.5-Math/evaluation/data/math/train50.jsonl --out runs/v0
+
+
+
+
+
+
+# ① 采样:生成轨迹 + 计划质量(GPU,8卡)
+python sample_minimal.py --model /public/home/ljt/lzm/model/Qwen3-8B --problems lzm/code/PRM/runs/v0/train_round2_200.jsonl --out runs/v0 --n_problems 200 --M 2 --N 4 --tp 8
+
+# ② 忠实度标注:B1/B2 规则(CPU)
+python label_minimal.py --traj runs/v0/trajectories-v6-n8.jsonl --out runs/v0/step_labels-v6-n8.jsonl
+
+# ③ 执行验证:C1/C2 规则(CPU)
+python verify_rules.py --traj runs/v0/trajectories-v6-n8.jsonl --labels runs/v0/step_labels-v6-n8.jsonl --out runs/v0/c2_labels-v6-n8.jsonl
+
+# ④ 总装:汇流成 SFT 数据(CPU)
+python assemble_dataset.py --traj   runs/v0/trajectories.jsonl --labels runs/v0/step_labels.jsonl --c2 runs/v0/c2_labels.jsonl --problems /public/home/ljt/lzm/code/Qwen2.5-Math/evaluation/data/math/train50.jsonl --out runs/v0/sft_dataset_v7.jsonl
+
+# 训练
+bash run_prm_sft.sh /public/home/ljt/lzm/code/PRM/LLaMA-Factory
+
+# 验证
+python sample_minimal.py --model /public/home/ljt/lzm/model/Qwen3-8B --problems /public/home/ljt/lzm/code/Qwen2.5-Math/evaluation/data/math/val500.jsonl --out runs/val --n_problems 500 --M 2 --N 4 --tp 8
+python eval_bon.py --mode majority --traj runs/val/trajectories.jsonl --problems /public/home/ljt/lzm/code/Qwen2.5-Math/evaluation/data/math/val500.jsonl --out runs/eval/bon_majority.json
+EXTRA_ARGS="--dual_score" bash run_eval_parallel.sh ours /public/home/ljt/lzm/code/PRM/saves/prm-merged-v6 runs/val/trajectories.jsonl public/home/ljt/lzm/code/Qwen2.5-Math/evaluation/data/math/val500.jsonl runs/val/bon_v6.json 8
+EXTRA_ARGS="--dual_score" bash run_eval_parallel.sh scalar /public/home/ljt/lzm/model/Qwen2.5-Math-PRM-7B runs/val/trajectories.jsonl public/home/ljt/lzm/code/Qwen2.5-Math/evaluation/data/math/val500.jsonl runs/val/bon_qwen_rpm.json 8
+
+# 评估
+python sample_minimal.py --model /public/home/ljt/lzm/model/Qwen3-8B --problems /public/home/ljt/lzm/code/Qwen2.5-Math/evaluation/data/math/test.jsonl --n_problems 500 --M 1 --N 1 --tp 8
+python eval_bon.py --mode majority --traj runs/eval/trajectories.jsonl --problems /public/home/ljt/lzm/code/Qwen2.5-Math/evaluation/data/math/test.jsonl --out runs/eval/bon_majority.json
+CUDA_VISIBLE_DEVICES=0,1,2,3 python eval_bon.py --mode ours --prm /public/home/ljt/lzm/code/PRM/saves/prm-merged-v2 --traj runs/eval/trajectories.jsonl --problems /public/home/ljt/lzm/code/Qwen2.5-Math/evaluation/data/math/test.jsonl --out runs/eval/bon_ours_v3.json --max_model_len 16384 --tp 4 --max_gen 1024
+CUDA_VISIBLE_DEVICES=4,5,6,7 python eval_bon.py --mode scalar --prm /public/home/ljt/lzm/model/Qwen2.5-Math-PRM-7B --traj runs/eval/trajectories.jsonl --problems /public/home/ljt/lzm/code/Qwen2.5-Math/evaluation/data/math/test.jsonl --out runs/eval/bon_qwen_rpm.json --max_model_len 16384 --tp 4 --max_gen 1024
+CUDA_VISIBLE_DEVICES=4,5,6,7 python eval_bon.py --mode skywork --prm /public/home/ljt/lzm/model/Skywork-o1-Open-PRM-Qwen-2.5-7B --traj runs/eval/trajectories.jsonl --problems /public/home/ljt/lzm/code/Qwen2.5-Math/evaluation/data/math/test.jsonl --out runs/eval/bon_skywork.json --max_model_len 16384 --tp 4 --max_gen 1024
+
+
+llamafactory-cli export --model_name_or_path /public/home/ljt/lzm/model/Qwen2.5-Math-7B-Instruct --adapter_name_or_path /public/home/ljt/lzm/code/PRM/LLaMA-Factory/saves/qwen25math7b-factorized-prm-v6plus250/checkpoint-162 --template qwen --finetuning_type lora --export_dir /public/home/ljt/lzm/code/PRM/saves/prm-merged-v6plus200-full01
+EXTRA_ARGS="--dual_score --score_scheme step01" bash run_eval_parallel.sh ours  /public/home/ljt/lzm/code/PRM/saves/prm-merged-v6plus200-01 runs/eval/trajectories.jsonl /public/home/ljt/lzm/code/Qwen2.5-Math/evaluation/data/math/test.jsonl runs/eval/bon_v6plus200-01.json 8
+
+python sample_minimal.py --model /public/home/ljt/lzm/model/Qwen3-8B --problems /public/home/ljt/lzm/code/Qwen2.5-Math/evaluation/data/aime24/test.jsonl --out runs/eval --n_problems 30 --M 2 --N 4 --tp 8
+python eval_bon.py --mode majority --traj runs/eval/trajectories-aime24.jsonl --problems /public/home/ljt/lzm/code/Qwen2.5-Math/evaluation/data/aime24/test.jsonl --out runs/eval/bon_majority.json
+EXTRA_ARGS="--dual_score" bash run_eval_parallel.sh ours  /public/home/ljt/lzm/code/PRM/saves/prm-merged-v6 runs/eval/trajectories-aime24.jsonl /public/home/ljt/lzm/code/Qwen2.5-Math/evaluation/data/aime24/test.jsonl runs/eval/bon_v6-aime24.json 8
+
+
+
+python sample_minimal.py --model /public/home/ljt/lzm/model/Qwen3-8B --problems runs/v0/train_round2_200.jsonl --n_problems 200 --M 2 --N 8 --out runs/v0_round2_n8/trajectories.jsonl

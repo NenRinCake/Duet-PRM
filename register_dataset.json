@@ -1,0 +1,13 @@
+{
+  "_comment": "把下面 factorized_prm 这一项合并进 LLaMA-Factory 的 data/dataset_info.json (不是替换整个文件, 是加一个键)。file_name 用你的 sft_dataset.jsonl 的绝对路径或放到 LF 的 data/ 目录下用相对名。",
+
+  "factorized_prm": {
+    "file_name": "/public/home/ljt/lzm/code/PRM/runs/v0/sft_dataset_v2.jsonl",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output"
+    }
+  }
+}

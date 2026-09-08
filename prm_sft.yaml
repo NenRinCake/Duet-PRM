@@ -1,0 +1,105 @@
+# prm_sft.yaml — LLaMA-Factory SFT 配置: 训练因式分解生成式 PRM (LoRA, 50w条数据版本)
+# 用法: llamafactory-cli train prm_sft.yaml
+# 适配: 8 x A100-40G 单节点; 数据量约51.8万条(5981题, M4, 完整清洗)
+#
+# 相比1050题LoRA版本(rank32, target:all): 数据量×5, 继续沿用同样的rank/target,
+# 因为LoRA容量瓶颈通常不会因为数据量增大而需要成倍放大——LoRA学的是"任务适配的
+# 低秩变化", 不是像全参那样直接记忆全部数据, 数据量增大更多是提升泛化多样性,
+# 不代表容量需求线性增长。如果这次loss收敛后依然远高于1050题版本, 才考虑加大rank。
+
+### model
+# model_name_or_path: /public/home/ljt/lzm/model/Qwen2.5-Math-7B-Instruct
+# trust_remote_code: true
+
+# ### method
+# stage: sft
+# do_train: true
+# finetuning_type: lora
+# lora_rank: 64
+# lora_target: all
+
+# ### dataset
+# dataset: factorized_prm_500k
+# template: qwen
+# cutoff_len: 8192
+# max_samples: 1000000
+# overwrite_cache: true
+# preprocessing_num_workers: 16
+
+# ### output
+# output_dir: saves/qwen25math7b-factorized-prm-500k-lora-rank64
+# logging_steps: 50
+# save_steps: 200          # 数据量×5, 总步数会大幅增加, save_steps相应调大, 避免
+#                           # checkpoint保存过于频繁(虽然LoRA checkpoint很小,不像
+#                           # 全参那样有磁盘压力, 但过于频繁的保存会拖慢整体训练速度)
+# save_strategy: steps
+# plot_loss: true
+# overwrite_output_dir: true
+# save_total_limit: 3        # LoRA checkpoint很小(几百MB), 可以多留几个, 不用像
+#                             # 全参那样精打细算
+# load_best_model_at_end: false
+# metric_for_best_model: eval_loss
+# greater_is_better: false
+
+
+
+# prm_sft.yaml — LLaMA-Factory SFT 配置: 训练因式分解生成式 PRM (全参, 50万条数据版本)
+# 用法: llamafactory-cli train prm_sft.yaml
+# 适配: 8 x A100-40G 单节点(gpu08) + DeepSpeed ZeRO-3
+#
+# 当前版本: 50w条数据(5981题, M4, 完整清洗), 全参微调
+# checkpoint保存到 /tmp (gpu08, 348G可用), 而非home目录(配额受限, 反复踩坑)
+# HF_DATASETS_CACHE 同样需要通过环境变量重定向到 /tmp, 见配套启动命令
+# save_total_limit=2: 稳态200GB, 瞬时峰值(新旧交替)300GB, 在348G空间内留
+#   约48GB缓冲。此外用独立的 auto_backup_best.py 脚本持续监控eval_loss,
+#   一旦出现新的历史最低点立刻把瘦身后的权重(~15GB, 跳过优化器状态)
+#   复制到独立备份目录, 作为 load_best_model_at_end 的兜底保险
+#   (该参数在LoRA场景遇到过peft/transformers版本不兼容的bug, 全参场景
+#   理论上不会触发, 但未实际验证过, 保留独立脚本作为防御性备份)
+
+### model
+model_name_or_path: /public/home/ljt/lzm/model/Qwen2.5-Math-7B-Instruct
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: full
+deepspeed: /public/home/ljt/lzm/code/PRM/LLaMA-Factory/examples/deepspeed/ds_z3_config.json
+
+### dataset
+dataset: factorized_prm_500k
+template: qwen
+cutoff_len: 8192
+max_samples: 1000000
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+output_dir: /tmp/prm_checkpoints/qwen25math7b-factorized-prm-500k-full
+resume_from_checkpoint: /tmp/prm_checkpoints/qwen25math7b-factorized-prm-500k-full/checkpoint-200
+logging_steps: 25
+save_steps: 100
+save_strategy: steps
+plot_loss: true
+overwrite_output_dir: true
+save_total_limit: 2
+load_best_model_at_end: true
+metric_for_best_model: eval_loss
+greater_is_better: false
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 32
+learning_rate: 2.0e-5
+num_train_epochs: 2.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.03
+bf16: true
+gradient_checkpointing: true
+
+### eval
+val_size: 0.05
+per_device_eval_batch_size: 1
+eval_strategy: "steps"
+eval_steps: 100
