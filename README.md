@@ -21,6 +21,10 @@
 
 The repository covers the complete experimental workflow: sampling plan-conditioned tool-integrated reasoning trajectories, assigning rule-based adherence and execution labels, assembling supervised fine-tuning data, training a generative PRM with LLaMA-Factory, and evaluating it through Best-of-N selection and chain-level separation metrics.
 
+<div align="center">
+  <img src="assets/motivation.svg" alt="Motivation for factorizing plan and step rewards" width="92%">
+</div>
+
 ---
 
 ## 🧩 Framework
@@ -40,6 +44,10 @@ The trained model outputs two discrete scores:
 <plan_score>0.0|0.5|1.0</plan_score>
 <step_score>0.0|0.5|1.0</step_score>
 ```
+
+<div align="center">
+  <img src="assets/pipeline.svg" alt="Duet-PRM data construction, training, and evaluation pipeline" width="98%">
+</div>
 
 ---
 

@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="820" viewBox="0 0 1600 820" role="img" aria-labelledby="title desc">
+  <title id="title">Motivation for Duet-PRM</title>
+  <desc id="desc">A conventional process reward model compresses plan and execution quality into one ambiguous score, while Duet-PRM evaluates them separately.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#f7f5ff"/>
+    </linearGradient>
+    <linearGradient id="duet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#edf4ff"/>
+      <stop offset="1" stop-color="#f4efff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="7" stdDeviation="10" flood-color="#1f2937" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#64748b"/>
+    </marker>
+    <style>
+      .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+      .title { font-size: 42px; font-weight: 750; fill: #172033; }
+      .subtitle { font-size: 20px; fill: #526079; }
+      .panel-title { font-size: 28px; font-weight: 720; fill: #172033; }
+      .label { font-size: 19px; font-weight: 650; fill: #27344d; }
+      .body { font-size: 18px; fill: #526079; }
+      .small { font-size: 16px; fill: #66748d; }
+      .score { font-size: 23px; font-weight: 750; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="820" rx="28" fill="url(#bg)"/>
+  <g class="sans">
+    <text x="800" y="62" text-anchor="middle" class="title">Why Factorize Process Rewards?</text>
+    <text x="800" y="96" text-anchor="middle" class="subtitle">A single reward hides whether an error comes from the strategy or its execution.</text>
+
+    <!-- Left: conventional PRM -->
+    <rect x="52" y="132" width="560" height="622" rx="28" fill="#ffffff" stroke="#d8dee9" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="52" y="132" width="560" height="74" rx="28" fill="#fff0ed"/>
+    <rect x="52" y="178" width="560" height="28" fill="#fff0ed"/>
+    <text x="332" y="180" text-anchor="middle" class="panel-title">Conventional Single-Score PRM</text>
+
+    <rect x="91" y="239" width="482" height="132" rx="18" fill="#fff9f7" stroke="#f2b8aa" stroke-width="2"/>
+    <circle cx="127" cy="274" r="16" fill="#d95c44"/>
+    <text x="127" y="281" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">A</text>
+    <text x="158" y="280" class="label">Sound plan</text>
+    <path d="M275 274 H315" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="342" y="280" class="label" fill="#b54734">Execution slip</text>
+    <text x="158" y="323" class="body">Correct strategy, but one computation step fails.</text>
+    <rect x="433" y="332" width="112" height="27" rx="13" fill="#ffe1db"/>
+    <text x="489" y="351" text-anchor="middle" class="small" fill="#b54734">incorrect</text>
+
+    <rect x="91" y="398" width="482" height="132" rx="18" fill="#fff9f7" stroke="#f2b8aa" stroke-width="2"/>
+    <circle cx="127" cy="433" r="16" fill="#d95c44"/>
+    <text x="127" y="440" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">B</text>
+    <text x="158" y="439" class="label" fill="#b54734">Flawed plan</text>
+    <path d="M275 433 H315" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="342" y="439" class="label">Plausible steps</text>
+    <text x="158" y="482" class="body">Locally valid steps follow an unsound strategy.</text>
+    <rect x="433" y="491" width="112" height="27" rx="13" fill="#ffe1db"/>
+    <text x="489" y="510" text-anchor="middle" class="small" fill="#b54734">incorrect</text>
+
+    <path d="M211 563 C211 603 277 607 310 632" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M453 563 C453 603 387 607 354 632" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="184" y="632" width="296" height="74" rx="18" fill="#f1f3f6" stroke="#b8c0ce" stroke-width="2"/>
+    <text x="332" y="665" text-anchor="middle" class="label">One scalar reward</text>
+    <text x="332" y="690" text-anchor="middle" class="small">same outcome, different failure modes</text>
+
+    <!-- Center divider -->
+    <circle cx="800" cy="442" r="58" fill="#172033" filter="url(#shadow)"/>
+    <text x="800" y="452" text-anchor="middle" font-size="29" font-weight="800" fill="#fff">VS</text>
+    <path d="M648 442 H723" stroke="#9aa5b5" stroke-width="3" stroke-dasharray="8 9"/>
+    <path d="M877 442 H952" stroke="#9aa5b5" stroke-width="3" stroke-dasharray="8 9"/>
+
+    <!-- Right: Duet PRM -->
+    <rect x="988" y="132" width="560" height="622" rx="28" fill="#ffffff" stroke="#c7d8f5" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="988" y="132" width="560" height="74" rx="28" fill="url(#duet)"/>
+    <rect x="988" y="178" width="560" height="28" fill="url(#duet)"/>
+    <text x="1268" y="180" text-anchor="middle" class="panel-title">Duet-PRM</text>
+
+    <rect x="1027" y="239" width="482" height="132" rx="18" fill="#f8fbff" stroke="#a9c6f4" stroke-width="2"/>
+    <circle cx="1063" cy="274" r="16" fill="#367bd6"/>
+    <text x="1063" y="281" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">A</text>
+    <text x="1094" y="280" class="label">Sound plan + execution slip</text>
+    <rect x="1094" y="309" width="166" height="42" rx="13" fill="#e5f5ec"/>
+    <text x="1177" y="337" text-anchor="middle" class="score" fill="#238454">Plan 1.0</text>
+    <rect x="1276" y="309" width="194" height="42" rx="13" fill="#ffe8e3"/>
+    <text x="1373" y="337" text-anchor="middle" class="score" fill="#bd4d38">Step 0.0</text>
+
+    <rect x="1027" y="398" width="482" height="132" rx="18" fill="#fbf9ff" stroke="#c6b4ee" stroke-width="2"/>
+    <circle cx="1063" cy="433" r="16" fill="#7759c7"/>
+    <text x="1063" y="440" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">B</text>
+    <text x="1094" y="439" class="label">Flawed plan + plausible steps</text>
+    <rect x="1094" y="468" width="166" height="42" rx="13" fill="#ffe8e3"/>
+    <text x="1177" y="496" text-anchor="middle" class="score" fill="#bd4d38">Plan 0.0</text>
+    <rect x="1276" y="468" width="194" height="42" rx="13" fill="#fff2d6"/>
+    <text x="1373" y="496" text-anchor="middle" class="score" fill="#a96808">Step 0.5</text>
+
+    <path d="M1268 562 V620" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="1052" y="632" width="432" height="74" rx="18" fill="url(#duet)" stroke="#9db9ec" stroke-width="2"/>
+    <text x="1268" y="665" text-anchor="middle" class="label">Two complementary signals</text>
+    <text x="1268" y="690" text-anchor="middle" class="small">diagnose, train, and rank with finer evidence</text>
+
+    <rect x="499" y="774" width="602" height="29" rx="14" fill="#eef2ff"/>
+    <text x="800" y="795" text-anchor="middle" class="small" fill="#485b8f">Factorization preserves information that a single reward collapses.</text>
+  </g>
+</svg>
