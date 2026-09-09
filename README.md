@@ -1,8 +1,8 @@
 # Duet-PRM: Plan-and-Step Factorized Process Reward Modeling
 
-🧭 Plan Quality | 🔎 Step Verification | 🏆 Best-of-N Selection
+🧭 Plan Reliability | 🔎 Step Correctness | ⚙️ Automated Supervision
 
-> A data construction, training, and evaluation pipeline for process reward models that score solution plans and execution steps separately.
+> A fully automated pipeline for training process reward models that assess plan reliability and step correctness separately.
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -19,7 +19,7 @@
 - **Plan score** evaluates whether a proposed solution strategy is likely to lead to a correct and complete answer.
 - **Step score** evaluates whether the current execution step is faithful to the plan and supported by its computation.
 
-The repository covers the complete experimental workflow: sampling plan-conditioned tool-integrated reasoning trajectories, assigning rule-based adherence and execution labels, assembling supervised fine-tuning data, training a generative PRM with LLaMA-Factory, and evaluating it through Best-of-N selection and chain-level separation metrics.
+The repository covers the complete experimental workflow: sampling multiple independent executions for each plan, constructing plan- and step-level supervision without human annotation or auxiliary LLMs, assembling supervised fine-tuning data, training a generative PRM with LLaMA-Factory, and evaluating the complementary signals through chain discrimination and inference-time selection.
 
 <div align="center">
   <img src="assets/motivation.png" alt="Motivation for factorizing plan and step rewards" width="92%">
@@ -46,7 +46,7 @@ The trained model outputs two discrete scores:
 ```
 
 <div align="center">
-  <img src="assets/pipeline.png" alt="Duet-PRM data construction, training, and evaluation pipeline" width="98%">
+  <img src="assets/pipeline.png" alt="Automated pipeline for constructing plan-step factorized supervision" width="98%">
 </div>
 
 ---
