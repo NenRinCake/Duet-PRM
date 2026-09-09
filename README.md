@@ -4,7 +4,8 @@
 
 > A fully automated pipeline for training process reward models that assess plan reliability and step correctness separately.
 
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Data/Eval: Python 3.10](https://img.shields.io/badge/data%20%26%20eval-python%203.10-blue.svg)](https://www.python.org/downloads/)
+[![Training: Python 3.11](https://img.shields.io/badge/training-python%203.11-purple.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 <!--
 [![arXiv](https://img.shields.io/badge/arXiv-preprint-b31b1b.svg)](ARXIV_URL)
@@ -84,7 +85,7 @@ Generated data, checkpoints, logs, and evaluation outputs are written under `run
 
 ### Installation
 
-The construction/evaluation and training environments are kept separate because they use different dependency versions. Linux with CUDA-capable GPUs is recommended.
+The construction/evaluation and training environments are kept separate because they use different dependency versions. Use Python 3.10 for construction and evaluation, and Python 3.11 for training because the vendored LLaMA-Factory requires Python 3.11 or newer. Linux with CUDA-capable GPUs is recommended.
 
 For data construction and evaluation:
 
@@ -97,7 +98,7 @@ pip install -r data_env/requirements.txt
 For training:
 
 ```bash
-conda create -n duet-train python=3.10 -y
+conda create -n duet-train python=3.11 -y
 conda activate duet-train
 pip install -r trainer_env/requirements.txt
 pip install -e ./LLaMA-Factory
