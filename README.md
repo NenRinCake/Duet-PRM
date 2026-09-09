@@ -111,7 +111,7 @@ The canonical problem file is JSONL with one problem per line:
 {"problem": "Solve ...", "answer": "42"}
 ```
 
-The `answer` field is needed to compute trajectory correctness and plan-quality labels. `sample_minimal_ref.py` additionally normalizes common benchmark fields such as `question`, `prompt`, `final_answer`, `gt_answer`, and GSM8K-style answers.
+The **answer** field is needed to compute trajectory correctness and plan-quality labels. `sample_minimal_ref.py` additionally normalizes common benchmark fields such as **question**, **prompt**, **final_answer**, and **gt_answer**, as well as GSM8K-style answers.
 
 ---
 
@@ -132,7 +132,7 @@ python sample_minimal.py \
   --tp 8
 ```
 
-This produces `runs/train/trajectories.jsonl`. Here, `M` is the number of plans per problem and `N` is the number of executions sampled for each plan.
+This produces `runs/train/trajectories.jsonl`. Here, **M** is the number of plans per problem and **N** is the number of executions sampled for each plan.
 
 ### 2. Label Plan Adherence
 
@@ -236,7 +236,7 @@ bash run_eval_parallel.sh \
 | `step01` | Three classes | Binary: 0.0 / 1.0 |
 | `full01` | Binary: 0.0 / 1.0 | Binary: 0.0 / 1.0 |
 
-The same evaluator also supports `scalar` and `skywork` modes for external PRM baselines.
+The same evaluator also supports the **scalar** and **skywork** modes for external PRM baselines.
 
 ### PRM-Weighted Answer Voting
 
@@ -273,7 +273,7 @@ The report includes raw separation, Cohen's d, AUC, and problem-level cluster-bo
 
 ## 📝 Reproducibility Notes
 
-- Keep `M`, `N`, decoding temperatures, and random seeds fixed when comparing PRMs.
+- Keep **M**, **N**, decoding temperatures, and random seeds fixed when comparing PRMs.
 - Reuse the same candidate trajectories across selection methods for a fair Best-of-N comparison.
 - Always pass the original problem file during evaluation; otherwise the evaluator must fall back to incomplete trajectory context.
 - Match `--score_scheme` to the training target format used by the evaluated checkpoint.
