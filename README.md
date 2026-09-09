@@ -162,7 +162,7 @@ python assemble_dataset.py \
   --out runs/train/sft_dataset.jsonl
 ```
 
-The assembled file uses the Alpaca fields `instruction`, `input`, and `output`, together with traceability metadata for the originating problem, plan, execution, and step.
+The assembled file follows the Alpaca schema with three primary fields: **instruction**, **input**, and **output**. It also preserves traceability metadata for the originating problem, plan, execution, and step.
 
 ---
 
