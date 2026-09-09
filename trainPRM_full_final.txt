@@ -1,1829 +1,0 @@
-/public/home/ljt/lzm/code/PRM/runs/train_data_test/sft_dataset_1050q.jsonl
-==> [1/4] 校验数据集
-  样本数: 101254, 缺字段: 0
-==> [2/4] token 长度速查 (确认 cutoff_len 够用)
-==> [3/4] 注册数据集到 /public/home/ljt/lzm/code/PRM/LLaMA-Factory/data/dataset_info.json
-  已注册 factorized_prm -> /public/home/ljt/lzm/code/PRM/runs/train_data_test/sft_dataset_1050q.jsonl
-==> [4/4] 启动 8 卡 SFT
-[INFO|2026-07-17 16:32:38] llamafactory.launcher:144 >> Initializing 8 distributed tasks at: 127.0.0.1:49250
-W0717 16:32:43.538000 42285 site-packages/torch/distributed/run.py:792] 
-W0717 16:32:43.538000 42285 site-packages/torch/distributed/run.py:792] *****************************************
-W0717 16:32:43.538000 42285 site-packages/torch/distributed/run.py:792] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
-W0717 16:32:43.538000 42285 site-packages/torch/distributed/run.py:792] *****************************************
-[INFO|2026-07-17 16:33:47] llamafactory.hparams.parser:523 >> Process rank: 0, world size: 8, device: cuda:0, distributed training: True, compute dtype: torch.bfloat16
-[INFO|tokenization_utils_base.py:2066] 2026-07-17 16:33:47,616 >> loading file vocab.json
-[INFO|tokenization_utils_base.py:2066] 2026-07-17 16:33:47,616 >> loading file merges.txt
-[INFO|tokenization_utils_base.py:2066] 2026-07-17 16:33:47,616 >> loading file tokenizer.json
-[INFO|tokenization_utils_base.py:2066] 2026-07-17 16:33:47,616 >> loading file added_tokens.json
-[INFO|tokenization_utils_base.py:2066] 2026-07-17 16:33:47,616 >> loading file special_tokens_map.json
-[INFO|tokenization_utils_base.py:2066] 2026-07-17 16:33:47,616 >> loading file tokenizer_config.json
-[INFO|tokenization_utils_base.py:2066] 2026-07-17 16:33:47,616 >> loading file chat_template.jinja
-[INFO|2026-07-17 16:33:47] llamafactory.hparams.parser:523 >> Process rank: 5, world size: 8, device: cuda:5, distributed training: True, compute dtype: torch.bfloat16
-[INFO|2026-07-17 16:33:47] llamafactory.hparams.parser:523 >> Process rank: 1, world size: 8, device: cuda:1, distributed training: True, compute dtype: torch.bfloat16
-[INFO|2026-07-17 16:33:47] llamafactory.hparams.parser:523 >> Process rank: 7, world size: 8, device: cuda:7, distributed training: True, compute dtype: torch.bfloat16
-[INFO|2026-07-17 16:33:47] llamafactory.hparams.parser:523 >> Process rank: 4, world size: 8, device: cuda:4, distributed training: True, compute dtype: torch.bfloat16
-[INFO|2026-07-17 16:33:47] llamafactory.hparams.parser:523 >> Process rank: 2, world size: 8, device: cuda:2, distributed training: True, compute dtype: torch.bfloat16
-[INFO|2026-07-17 16:33:47] llamafactory.hparams.parser:523 >> Process rank: 6, world size: 8, device: cuda:6, distributed training: True, compute dtype: torch.bfloat16
-[INFO|2026-07-17 16:33:47] llamafactory.hparams.parser:523 >> Process rank: 3, world size: 8, device: cuda:3, distributed training: True, compute dtype: torch.bfloat16
-[INFO|tokenization_utils_base.py:2337] 2026-07-17 16:33:48,041 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
-[INFO|configuration_utils.py:763] 2026-07-17 16:33:48,045 >> loading configuration file /public/home/ljt/lzm/model/Qwen2.5-Math-7B-Instruct/config.json
-[INFO|configuration_utils.py:839] 2026-07-17 16:33:48,060 >> Model config Qwen2Config {
-  "architectures": [
-    "Qwen2ForCausalLM"
-  ],
-  "attention_dropout": 0.0,
-  "bos_token_id": 151643,
-  "dtype": "bfloat16",
-  "eos_token_id": 151645,
-  "hidden_act": "silu",
-  "hidden_size": 3584,
-  "initializer_range": 0.02,
-  "intermediate_size": 18944,
-  "layer_types": [
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention"
-  ],
-  "max_position_embeddings": 16384,
-  "max_window_layers": 28,
-  "model_type": "qwen2",
-  "num_attention_heads": 28,
-  "num_hidden_layers": 28,
-  "num_key_value_heads": 4,
-  "rms_norm_eps": 1e-06,
-  "rope_scaling": null,
-  "rope_theta": 10000.0,
-  "sliding_window": null,
-  "tie_word_embeddings": false,
-  "transformers_version": "4.56.1",
-  "use_cache": true,
-  "use_sliding_window": false,
-  "vocab_size": 152064
-}
-
-[INFO|tokenization_utils_base.py:2066] 2026-07-17 16:33:48,061 >> loading file vocab.json
-[INFO|tokenization_utils_base.py:2066] 2026-07-17 16:33:48,061 >> loading file merges.txt
-[INFO|tokenization_utils_base.py:2066] 2026-07-17 16:33:48,061 >> loading file tokenizer.json
-[INFO|tokenization_utils_base.py:2066] 2026-07-17 16:33:48,061 >> loading file added_tokens.json
-[INFO|tokenization_utils_base.py:2066] 2026-07-17 16:33:48,061 >> loading file special_tokens_map.json
-[INFO|tokenization_utils_base.py:2066] 2026-07-17 16:33:48,061 >> loading file tokenizer_config.json
-[INFO|tokenization_utils_base.py:2066] 2026-07-17 16:33:48,061 >> loading file chat_template.jinja
-[INFO|tokenization_utils_base.py:2337] 2026-07-17 16:33:48,430 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
-[INFO|2026-07-17 16:33:48] llamafactory.data.loader:144 >> Loading dataset /public/home/ljt/lzm/code/PRM/runs/train_data_test/sft_dataset_1050q.jsonl...
-[rank7]:[W717 16:33:48.178818705 ProcessGroupNCCL.cpp:4561] [PG ID 0 PG GUID 0 Rank 7]  using GPU 7 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. Specify device_ids in barrier() to force use of a particular device, or call init_process_group() with a device_id.
-[rank1]:[W717 16:33:48.213681417 ProcessGroupNCCL.cpp:4561] [PG ID 0 PG GUID 0 Rank 1]  using GPU 1 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. Specify device_ids in barrier() to force use of a particular device, or call init_process_group() with a device_id.
-[rank5]:[W717 16:33:48.240762184 ProcessGroupNCCL.cpp:4561] [PG ID 0 PG GUID 0 Rank 5]  using GPU 5 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. Specify device_ids in barrier() to force use of a particular device, or call init_process_group() with a device_id.
-[rank4]:[W717 16:33:48.248307812 ProcessGroupNCCL.cpp:4561] [PG ID 0 PG GUID 0 Rank 4]  using GPU 4 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. Specify device_ids in barrier() to force use of a particular device, or call init_process_group() with a device_id.
-[rank2]:[W717 16:33:48.279996249 ProcessGroupNCCL.cpp:4561] [PG ID 0 PG GUID 0 Rank 2]  using GPU 2 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. Specify device_ids in barrier() to force use of a particular device, or call init_process_group() with a device_id.
-[rank6]:[W717 16:33:48.301684917 ProcessGroupNCCL.cpp:4561] [PG ID 0 PG GUID 0 Rank 6]  using GPU 6 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. Specify device_ids in barrier() to force use of a particular device, or call init_process_group() with a device_id.
-[rank3]:[W717 16:33:48.336231718 ProcessGroupNCCL.cpp:4561] [PG ID 0 PG GUID 0 Rank 3]  using GPU 3 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. Specify device_ids in barrier() to force use of a particular device, or call init_process_group() with a device_id.
-Converting format of dataset (num_proc=16): 100%|██████████| 101254/101254 [00:00<?, ? examples/s]Converting format of dataset (num_proc=16): 101255 examples [00:00,  2.97 examples/s]             Converting format of dataset (num_proc=16): 105956 examples [00:00, 13473.89 examples/s]Converting format of dataset (num_proc=16): 116001 examples [00:00, 38730.17 examples/s]Converting format of dataset (num_proc=16): 128505 examples [00:00, 61474.71 examples/s]Converting format of dataset (num_proc=16): 142526 examples [00:00, 84002.44 examples/s]Converting format of dataset (num_proc=16): 155827 examples [00:00, 98207.81 examples/s]Converting format of dataset (num_proc=16): 169587 examples [00:00, 109529.62 examples/s]Converting format of dataset (num_proc=16): 184032 examples [00:01, 119788.52 examples/s]Converting format of dataset (num_proc=16): 197079 examples [00:01, 115650.58 examples/s]Converting format of dataset (num_proc=16): 202508 examples [00:02, 49614.29 examples/s] 
-[rank0]:[W717 16:33:52.769346399 ProcessGroupNCCL.cpp:4561] [PG ID 0 PG GUID 0 Rank 0]  using GPU 0 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. Specify device_ids in barrier() to force use of a particular device, or call init_process_group() with a device_id.
-Running tokenizer on dataset (num_proc=16): 100%|██████████| 91128/91128 [00:00<?, ? examples/s]Running tokenizer on dataset (num_proc=16): 92128 examples [00:03, 261.11 examples/s]           Running tokenizer on dataset (num_proc=16): 93128 examples [00:03, 606.01 examples/s]Running tokenizer on dataset (num_proc=16): 95128 examples [00:04, 1480.33 examples/s]Running tokenizer on dataset (num_proc=16): 97128 examples [00:04, 2371.34 examples/s]Running tokenizer on dataset (num_proc=16): 99128 examples [00:04, 3676.14 examples/s]Running tokenizer on dataset (num_proc=16): 101128 examples [00:04, 4007.99 examples/s]Running tokenizer on dataset (num_proc=16): 103128 examples [00:05, 5137.09 examples/s]Running tokenizer on dataset (num_proc=16): 105128 examples [00:05, 6619.56 examples/s]Running tokenizer on dataset (num_proc=16): 107128 examples [00:05, 6975.01 examples/s]Running tokenizer on dataset (num_proc=16): 109128 examples [00:06, 3046.48 examples/s]Running tokenizer on dataset (num_proc=16): 111128 examples [00:07, 3903.83 examples/s]Running tokenizer on dataset (num_proc=16): 113128 examples [00:07, 4483.13 examples/s]Running tokenizer on dataset (num_proc=16): 114128 examples [00:07, 4954.52 examples/s]Running tokenizer on dataset (num_proc=16): 116128 examples [00:07, 5197.53 examples/s]Running tokenizer on dataset (num_proc=16): 117128 examples [00:08, 5685.22 examples/s]Running tokenizer on dataset (num_proc=16): 120128 examples [00:08, 7584.83 examples/s]Running tokenizer on dataset (num_proc=16): 122128 examples [00:08, 8145.23 examples/s]Running tokenizer on dataset (num_proc=16): 124128 examples [00:09, 5505.29 examples/s]Running tokenizer on dataset (num_proc=16): 125128 examples [00:09, 3302.34 examples/s]Running tokenizer on dataset (num_proc=16): 127128 examples [00:10, 4435.77 examples/s]Running tokenizer on dataset (num_proc=16): 129128 examples [00:10, 5118.42 examples/s]Running tokenizer on dataset (num_proc=16): 130128 examples [00:10, 5047.03 examples/s]Running tokenizer on dataset (num_proc=16): 132128 examples [00:10, 5514.44 examples/s]Running tokenizer on dataset (num_proc=16): 133128 examples [00:10, 6041.72 examples/s]Running tokenizer on dataset (num_proc=16): 134128 examples [00:11, 6357.99 examples/s]Running tokenizer on dataset (num_proc=16): 136128 examples [00:11, 8137.28 examples/s]Running tokenizer on dataset (num_proc=16): 137128 examples [00:11, 7011.71 examples/s]Running tokenizer on dataset (num_proc=16): 140128 examples [00:11, 10385.76 examples/s]Running tokenizer on dataset (num_proc=16): 142128 examples [00:13, 3403.96 examples/s] Running tokenizer on dataset (num_proc=16): 144128 examples [00:13, 4514.31 examples/s]Running tokenizer on dataset (num_proc=16): 146128 examples [00:13, 4292.08 examples/s]Running tokenizer on dataset (num_proc=16): 148128 examples [00:13, 4823.14 examples/s]Running tokenizer on dataset (num_proc=16): 151128 examples [00:14, 7174.29 examples/s]Running tokenizer on dataset (num_proc=16): 153128 examples [00:14, 8484.13 examples/s]Running tokenizer on dataset (num_proc=16): 155128 examples [00:14, 8054.01 examples/s]Running tokenizer on dataset (num_proc=16): 157128 examples [00:15, 3685.26 examples/s]Running tokenizer on dataset (num_proc=16): 158824 examples [00:15, 4229.84 examples/s]Running tokenizer on dataset (num_proc=16): 160824 examples [00:16, 4924.53 examples/s]Running tokenizer on dataset (num_proc=16): 162824 examples [00:16, 4931.44 examples/s]Running tokenizer on dataset (num_proc=16): 164824 examples [00:16, 5238.98 examples/s]Running tokenizer on dataset (num_proc=16): 167824 examples [00:17, 7408.43 examples/s]Running tokenizer on dataset (num_proc=16): 169824 examples [00:17, 7544.10 examples/s]Running tokenizer on dataset (num_proc=16): 171824 examples [00:17, 8974.36 examples/s]Running tokenizer on dataset (num_proc=16): 173216 examples [00:18, 5303.30 examples/s]Running tokenizer on dataset (num_proc=16): 174608 examples [00:18, 6207.00 examples/s]Running tokenizer on dataset (num_proc=16): 176000 examples [00:18, 4932.29 examples/s]Running tokenizer on dataset (num_proc=16): 177391 examples [00:19, 4629.02 examples/s]Running tokenizer on dataset (num_proc=16): 179476 examples [00:19, 5268.70 examples/s]Running tokenizer on dataset (num_proc=16): 182256 examples [00:19, 6531.87 examples/s]Running tokenizer on dataset (num_proc=16): 182256 examples [00:20, 4460.70 examples/s]
-training example:
-input_ids:
-[151644, 8948, 198, 2610, 525, 1207, 16948, 11, 3465, 553, 54364, 14817, 13, 1446, 525, 264, 10950, 17847, 13, 151645, 198, 151644, 872, 198, 2610, 525, 2661, 264, 72566, 320, 64, 7299, 50156, 6291, 8282, 8, 323, 458, 62247, 28617, 61779, 13391, 304, 264, 43107, 48356, 13, 9258, 6896, 1378, 12205, 323, 4302, 770, 510, 10393, 10405, 25, 1246, 14720, 374, 279, 72566, 5086, 320, 258, 37555, 315, 1246, 1632, 894, 3175, 11320, 23377, 432, 700, 11843, 5443, 6896, 825, 315, 25, 220, 15, 13, 15, 320, 574, 3119, 18521, 11508, 311, 264, 4396, 4226, 11, 476, 13814, 14525, 311, 1496, 8193, 264, 4583, 1102, 701, 220, 15, 13, 20, 320, 56685, 476, 39140, 3059, 3941, 13553, 701, 476, 220, 16, 13, 15, 320, 574, 3119, 56382, 11508, 311, 264, 4396, 4226, 4292, 9520, 10405, 25, 374, 279, 43107, 48356, 5086, 4396, 323, 55942, 30, 5443, 6896, 825, 315, 25, 220, 15, 13, 15, 320, 2152, 1959, 4969, 11, 3483, 42298, 504, 279, 3119, 11, 476, 1558, 902, 1931, 975, 701, 220, 15, 13, 20, 320, 33260, 387, 28135, 10838, 701, 476, 220, 16, 13, 15, 320, 9693, 1959, 1632, 87113, 4292, 5097, 26687, 279, 2701, 1378, 9492, 11, 304, 419, 4734, 1973, 11, 448, 902, 1008, 1467, 510, 27, 10393, 10405, 76329, 4338, 522, 10393, 10405, 397, 27, 9520, 10405, 76329, 4338, 522, 9520, 10405, 397, 31198, 510, 32, 9876, 8471, 518, 264, 11936, 315, 458, 3232, 42939, 21495, 13, 1913, 1817, 3271, 11, 432, 26618, 49143, 825, 315, 279, 1378, 17228, 1380, 432, 374, 537, 5023, 7407, 11, 323, 23926, 4730, 3156, 264, 3108, 315, 279, 21495, 311, 429, 11936, 13, 16246, 429, 279, 18927, 429, 279, 9876, 10797, 311, 1181, 5916, 11936, 389, 1181, 55666, 3271, 374, 400, 76, 9612, 4779, 1380, 400, 76, 3, 323, 400, 77, 3, 525, 12040, 10250, 6785, 25780, 11, 1477, 400, 76, 488, 308, 2418, 1406, 8707, 72566, 2049, 198, 220, 393, 16, 320, 5884, 3124, 2089, 5757, 3495, 1648, 18614, 279, 17228, 315, 279, 3232, 42939, 21495, 323, 279, 3204, 10797, 279, 9876, 646, 1281, 624, 220, 393, 17, 320, 5884, 3124, 2089, 5757, 3495, 1648, 39398, 264, 75193, 12687, 369, 279, 18927, 315, 279, 9876, 1660, 518, 1817, 11936, 1283, 1817, 3271, 624, 220, 393, 18, 320, 8696, 92343, 1648, 5443, 279, 75193, 12687, 311, 12564, 279, 18927, 315, 279, 9876, 1660, 518, 279, 5916, 11936, 1283, 279, 55666, 3271, 624, 220, 393, 19, 320, 46616, 2916, 15189, 1648, 17399, 279, 18927, 438, 264, 11046, 19419, 400, 296, 9612, 400, 1380, 400, 296, 400, 323, 400, 308, 400, 525, 6162, 81, 545, 624, 220, 393, 20, 320, 8696, 92343, 1648, 20517, 279, 2629, 400, 296, 488, 308, 400, 369, 279, 11046, 19419, 382, 8707, 62247, 28617, 61779, 2049, 198, 1445, 603, 340, 8707, 43107, 48356, 2049, 198, 48561, 393, 16, 198, 1851, 510, 1499, 21459, 88, 1159, 17738, 11, 33122, 11, 11625, 271, 2, 18614, 17228, 438, 17738, 198, 32, 11, 425, 11, 356, 284, 17738, 492, 32, 425, 356, 4610, 2, 18614, 279, 3204, 10797, 504, 1817, 11936, 198, 66082, 284, 341, 262, 362, 25, 508, 33, 11, 356, 1259, 262, 425, 25, 508, 32, 11, 356, 1259, 262, 356, 25, 508, 32, 11, 425, 921, 630, 2, 8213, 279, 6505, 198, 66082, 198, 3006, 510, 90, 32, 25, 508, 33, 11, 356, 1125, 425, 25, 508, 32, 11, 356, 1125, 356, 25, 508, 32, 11, 425, 60, 630, 5097, 3119, 10405, 323, 3019, 10405, 369, 279, 3403, 13, 151645, 198, 151644, 77091, 198, 27, 10393, 10405, 29, 16, 13, 15, 522, 10393, 10405, 397, 27, 9520, 10405, 29, 15, 13, 20, 522, 9520, 10405, 29, 151645, 198]
-inputs:
-<|im_start|>system
-You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
-<|im_start|>user
-You are given a PLAN (a multi-stage solution strategy) and an EXECUTION HISTORY ending in a CURRENT STEP. Output exactly two scores and nothing else:
-plan_score: how reliable is the PLAN itself (independent of how well any single execution carries it out)? Use exactly one of: 0.0 (this plan rarely leads to a correct answer, or frequently fails to even produce a complete result), 0.5 (mixed or inconsistent results across attempts), or 1.0 (this plan reliably leads to a correct answer).
-step_score: is the CURRENT STEP itself correct and trustworthy? Use exactly one of: 0.0 (no — wrong, deviates from the plan, or does no real work), 0.5 (cannot be independently determined), or 1.0 (yes — well-supported).
-Output ONLY the following two tags, in this exact order, with no other text:
-<plan_score>X.X</plan_score>
-<step_score>X.X</step_score>
-Problem:
-A bug starts at a vertex of an equilateral triangle. On each move, it randomly selects one of the two vertices where it is not currently located, and crawls along a side of the triangle to that vertex. Given that the probability that the bug moves to its starting vertex on its tenth move is $m/n,$ where $m$ and $n$ are relatively prime positive integers, find $m + n.$
-
-
-=== PLAN ===
-  P1 (SETUP_EQUATION): Define the vertices of the equilateral triangle and the possible moves the bug can make.
-  P2 (SETUP_EQUATION): Establish a recurrence relation for the probability of the bug being at each vertex after each move.
-  P3 (COMPUTE): Use the recurrence relation to compute the probability of the bug being at the starting vertex after the tenth move.
-  P4 (SIMPLIFY): Express the probability as a reduced fraction $ m/n $ where $ m $ and $ n $ are coprime.
-  P5 (COMPUTE): Calculate the sum $ m + n $ for the reduced fraction.
-
-=== EXECUTION HISTORY ===
-(none)
-=== CURRENT STEP ===
-claims P1
-code:
-from sympy import symbols, Eq, solve
-
-# Define vertices as symbols
-A, B, C = symbols('A B C')
-
-# Define the possible moves from each vertex
-moves = {
-    A: [B, C],
-    B: [A, C],
-    C: [A, B]
-}
-
-# Print the setup
-moves
-output:
-{A: [B, C], B: [A, C], C: [A, B]}
-
-Output plan_score and step_score for the above.<|im_end|>
-<|im_start|>assistant
-<plan_score>1.0</plan_score>
-<step_score>0.5</step_score><|im_end|>
-
-label_ids:
-[-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 27, 10393, 10405, 29, 16, 13, 15, 522, 10393, 10405, 397, 27, 9520, 10405, 29, 15, 13, 20, 522, 9520, 10405, 29, 151645, 198]
-labels:
-<plan_score>1.0</plan_score>
-<step_score>0.5</step_score><|im_end|>
-
-Running tokenizer on dataset (num_proc=16): 100%|██████████| 10126/10126 [00:00<?, ? examples/s]Running tokenizer on dataset (num_proc=16): 10759 examples [00:02, 245.00 examples/s]           Running tokenizer on dataset (num_proc=16): 11392 examples [00:02, 532.61 examples/s]Running tokenizer on dataset (num_proc=16): 12658 examples [00:03, 1195.06 examples/s]Running tokenizer on dataset (num_proc=16): 14557 examples [00:03, 2353.20 examples/s]Running tokenizer on dataset (num_proc=16): 15190 examples [00:03, 2335.75 examples/s]Running tokenizer on dataset (num_proc=16): 16456 examples [00:03, 3234.64 examples/s]Running tokenizer on dataset (num_proc=16): 17089 examples [00:03, 3417.88 examples/s]Running tokenizer on dataset (num_proc=16): 18988 examples [00:04, 4293.24 examples/s]Running tokenizer on dataset (num_proc=16): 19620 examples [00:04, 4262.72 examples/s]Running tokenizer on dataset (num_proc=16): 20252 examples [00:04, 2200.78 examples/s]
-eval example:
-input_ids:
-[151644, 8948, 198, 2610, 525, 1207, 16948, 11, 3465, 553, 54364, 14817, 13, 1446, 525, 264, 10950, 17847, 13, 151645, 198, 151644, 872, 198, 2610, 525, 2661, 264, 72566, 320, 64, 7299, 50156, 6291, 8282, 8, 323, 458, 62247, 28617, 61779, 13391, 304, 264, 43107, 48356, 13, 9258, 6896, 1378, 12205, 323, 4302, 770, 510, 10393, 10405, 25, 1246, 14720, 374, 279, 72566, 5086, 320, 258, 37555, 315, 1246, 1632, 894, 3175, 11320, 23377, 432, 700, 11843, 5443, 6896, 825, 315, 25, 220, 15, 13, 15, 320, 574, 3119, 18521, 11508, 311, 264, 4396, 4226, 11, 476, 13814, 14525, 311, 1496, 8193, 264, 4583, 1102, 701, 220, 15, 13, 20, 320, 56685, 476, 39140, 3059, 3941, 13553, 701, 476, 220, 16, 13, 15, 320, 574, 3119, 56382, 11508, 311, 264, 4396, 4226, 4292, 9520, 10405, 25, 374, 279, 43107, 48356, 5086, 4396, 323, 55942, 30, 5443, 6896, 825, 315, 25, 220, 15, 13, 15, 320, 2152, 1959, 4969, 11, 3483, 42298, 504, 279, 3119, 11, 476, 1558, 902, 1931, 975, 701, 220, 15, 13, 20, 320, 33260, 387, 28135, 10838, 701, 476, 220, 16, 13, 15, 320, 9693, 1959, 1632, 87113, 4292, 5097, 26687, 279, 2701, 1378, 9492, 11, 304, 419, 4734, 1973, 11, 448, 902, 1008, 1467, 510, 27, 10393, 10405, 76329, 4338, 522, 10393, 10405, 397, 27, 9520, 10405, 76329, 4338, 522, 9520, 10405, 397, 31198, 510, 2461, 1128, 897, 315, 400, 77, 3, 374, 279, 3040, 48342, 1372, 400, 22, 16, 17, 77, 54876, 448, 8153, 15723, 400, 77, 54876, 74916, 553, 220, 16, 23, 1939, 8707, 72566, 2049, 198, 220, 393, 16, 320, 48773, 7984, 2336, 1648, 64547, 279, 2971, 369, 49368, 3147, 553, 220, 16, 23, 369, 279, 1372, 220, 22, 16, 17, 77, 198, 220, 393, 17, 320, 5884, 3124, 2089, 5757, 3495, 1648, 29901, 279, 49368, 3147, 5601, 369, 220, 17, 323, 220, 24, 2474, 220, 16, 23, 284, 220, 17, 24768, 220, 24, 198, 220, 393, 18, 320, 46616, 2916, 15189, 1648, 20552, 279, 49368, 3147, 5912, 369, 220, 17, 311, 279, 8153, 15723, 308, 198, 220, 393, 19, 320, 46616, 2916, 15189, 1648, 20552, 279, 49368, 3147, 5912, 369, 220, 24, 311, 279, 2629, 315, 279, 18509, 315, 220, 22, 16, 17, 77, 198, 220, 393, 20, 320, 5884, 3124, 2089, 5757, 3495, 1648, 46812, 279, 4682, 504, 49368, 3147, 553, 220, 17, 323, 220, 24, 311, 1352, 458, 23606, 369, 308, 198, 220, 393, 21, 320, 68742, 640, 2336, 1648, 14086, 58668, 3204, 2750, 315, 308, 320, 15, 12, 24, 8, 429, 26553, 279, 10856, 4682, 271, 8707, 62247, 28617, 61779, 2049, 271, 58, 8304, 220, 16, 60, 8186, 393, 16, 198, 1851, 510, 2, 576, 1372, 220, 22, 16, 17, 77, 1969, 387, 74916, 553, 220, 16, 23, 624, 2, 8704, 220, 16, 23, 284, 220, 17, 24768, 220, 24, 11, 279, 1372, 1969, 387, 74916, 553, 2176, 220, 17, 323, 220, 24, 624, 2, 8765, 285, 3147, 553, 220, 17, 25, 576, 8153, 15723, 308, 1969, 387, 1496, 624, 2, 8765, 285, 3147, 553, 220, 24, 25, 576, 2629, 315, 279, 18509, 315, 220, 22, 16, 17, 77, 1969, 387, 74916, 553, 220, 24, 624, 2, 15277, 11, 582, 1184, 311, 1477, 308, 1741, 429, 2176, 4682, 525, 19527, 624, 3006, 510, 58, 2152, 2550, 2533, 58, 8304, 220, 17, 60, 8186, 393, 17, 198, 1851, 510, 2, 8765, 285, 3147, 553, 220, 17, 25, 308, 1969, 387, 1496, 624, 2, 8765, 285, 3147, 553, 220, 24, 25, 8116, 315, 279, 18509, 315, 220, 22, 16, 17, 77, 1969, 387, 74916, 553, 220, 24, 624, 2, 576, 2629, 315, 279, 18509, 374, 220, 22, 488, 220, 16, 488, 220, 17, 488, 308, 284, 220, 16, 15, 488, 308, 624, 2, 2055, 11, 220, 16, 15, 488, 308, 1969, 387, 74916, 553, 220, 24, 624, 3006, 510, 58, 2152, 2550, 2533, 58, 8304, 220, 18, 60, 8186, 393, 18, 198, 1851, 510, 2, 576, 8153, 15723, 308, 1969, 387, 1496, 624, 2, 36107, 2750, 369, 308, 25, 220, 15, 11, 220, 17, 11, 220, 19, 11, 220, 21, 11, 220, 23, 624, 3006, 510, 58, 2152, 2550, 2533, 58, 8304, 220, 19, 60, 8186, 393, 19, 198, 1851, 510, 2, 576, 2629, 315, 279, 18509, 374, 220, 22, 488, 220, 16, 488, 220, 17, 488, 308, 284, 220, 16, 15, 488, 308, 624, 2, 1752, 279, 1372, 311, 387, 74916, 553, 220, 24, 11, 220, 16, 15, 488, 308, 1969, 387, 74916, 553, 220, 24, 624, 2, 2055, 11, 220, 16, 15, 488, 308, 284, 220, 24, 74, 369, 1045, 7546, 595, 624, 3006, 510, 58, 2152, 2550, 2533, 8707, 43107, 48356, 2049, 198, 48561, 393, 20, 198, 1851, 510, 2, 5542, 49368, 3147, 553, 220, 17, 25, 308, 374, 1496, 624, 2, 5542, 49368, 3147, 553, 220, 24, 25, 220, 16, 15, 488, 308, 1969, 387, 74916, 553, 220, 24, 624, 2, 2055, 11, 220, 16, 15, 488, 308, 284, 220, 24, 74, 369, 1045, 7546, 595, 624, 2, 1205, 1184, 311, 1477, 308, 320, 15, 12, 24, 8, 429, 67901, 2176, 4682, 624, 3006, 510, 58, 2152, 2550, 2533, 5097, 3119, 10405, 323, 3019, 10405, 369, 279, 3403, 13, 151645, 198, 151644, 77091, 198, 27, 10393, 10405, 29, 16, 13, 15, 522, 10393, 10405, 397, 27, 9520, 10405, 29, 15, 13, 15, 522, 9520, 10405, 29, 151645, 198]
-inputs:
-<|im_start|>system
-You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
-<|im_start|>user
-You are given a PLAN (a multi-stage solution strategy) and an EXECUTION HISTORY ending in a CURRENT STEP. Output exactly two scores and nothing else:
-plan_score: how reliable is the PLAN itself (independent of how well any single execution carries it out)? Use exactly one of: 0.0 (this plan rarely leads to a correct answer, or frequently fails to even produce a complete result), 0.5 (mixed or inconsistent results across attempts), or 1.0 (this plan reliably leads to a correct answer).
-step_score: is the CURRENT STEP itself correct and trustworthy? Use exactly one of: 0.0 (no — wrong, deviates from the plan, or does no real work), 0.5 (cannot be independently determined), or 1.0 (yes — well-supported).
-Output ONLY the following two tags, in this exact order, with no other text:
-<plan_score>X.X</plan_score>
-<step_score>X.X</step_score>
-Problem:
-For what value of $n$ is the four-digit number $712n$, with units digit $n$, divisible by 18?
-
-=== PLAN ===
-  P1 (TRANSLATE): Identify the condition for divisibility by 18 for the number 712n
-  P2 (SETUP_EQUATION): Determine the divisibility rules for 2 and 9 since 18 = 2 × 9
-  P3 (SIMPLIFY): Apply the divisibility rule for 2 to the units digit n
-  P4 (SIMPLIFY): Apply the divisibility rule for 9 to the sum of the digits of 712n
-  P5 (SETUP_EQUATION): Combine the conditions from divisibility by 2 and 9 to form an equation for n
-  P6 (ENUMERATE): Enumerate possible values of n (0-9) that satisfy the combined conditions
-
-=== EXECUTION HISTORY ===
-
-[Step 1] claims P1
-code:
-# The number 712n must be divisible by 18.
-# Since 18 = 2 × 9, the number must be divisible by both 2 and 9.
-# Divisibility by 2: The units digit n must be even.
-# Divisibility by 9: The sum of the digits of 712n must be divisible by 9.
-# Therefore, we need to find n such that both conditions are satisfied.
-output:
-[no output]
-
-[Step 2] claims P2
-code:
-# Divisibility by 2: n must be even.
-# Divisibility by 9: Sum of the digits of 712n must be divisible by 9.
-# The sum of the digits is 7 + 1 + 2 + n = 10 + n.
-# So, 10 + n must be divisible by 9.
-output:
-[no output]
-
-[Step 3] claims P3
-code:
-# The units digit n must be even.
-# Possible values for n: 0, 2, 4, 6, 8.
-output:
-[no output]
-
-[Step 4] claims P4
-code:
-# The sum of the digits is 7 + 1 + 2 + n = 10 + n.
-# For the number to be divisible by 9, 10 + n must be divisible by 9.
-# So, 10 + n = 9k for some integer k.
-output:
-[no output]
-
-=== CURRENT STEP ===
-claims P5
-code:
-# From divisibility by 2: n is even.
-# From divisibility by 9: 10 + n must be divisible by 9.
-# So, 10 + n = 9k for some integer k.
-# We need to find n (0-9) that satisfies both conditions.
-output:
-[no output]
-
-Output plan_score and step_score for the above.<|im_end|>
-<|im_start|>assistant
-<plan_score>1.0</plan_score>
-<step_score>0.0</step_score><|im_end|>
-
-label_ids:
-[-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 27, 10393, 10405, 29, 16, 13, 15, 522, 10393, 10405, 397, 27, 9520, 10405, 29, 15, 13, 15, 522, 9520, 10405, 29, 151645, 198]
-labels:
-<plan_score>1.0</plan_score>
-<step_score>0.0</step_score><|im_end|>
-
-[INFO|configuration_utils.py:763] 2026-07-17 16:34:20,622 >> loading configuration file /public/home/ljt/lzm/model/Qwen2.5-Math-7B-Instruct/config.json
-[INFO|configuration_utils.py:839] 2026-07-17 16:34:20,624 >> Model config Qwen2Config {
-  "architectures": [
-    "Qwen2ForCausalLM"
-  ],
-  "attention_dropout": 0.0,
-  "bos_token_id": 151643,
-  "dtype": "bfloat16",
-  "eos_token_id": 151645,
-  "hidden_act": "silu",
-  "hidden_size": 3584,
-  "initializer_range": 0.02,
-  "intermediate_size": 18944,
-  "layer_types": [
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention",
-    "full_attention"
-  ],
-  "max_position_embeddings": 16384,
-  "max_window_layers": 28,
-  "model_type": "qwen2",
-  "num_attention_heads": 28,
-  "num_hidden_layers": 28,
-  "num_key_value_heads": 4,
-  "rms_norm_eps": 1e-06,
-  "rope_scaling": null,
-  "rope_theta": 10000.0,
-  "sliding_window": null,
-  "tie_word_embeddings": false,
-  "transformers_version": "4.56.1",
-  "use_cache": true,
-  "use_sliding_window": false,
-  "vocab_size": 152064
-}
-
-[INFO|2026-07-17 16:34:20] llamafactory.model.model_utils.kv_cache:144 >> KV cache is disabled during training.
-`torch_dtype` is deprecated! Use `dtype` instead!
-`torch_dtype` is deprecated! Use `dtype` instead!
-`torch_dtype` is deprecated! Use `dtype` instead!
-[WARNING|logging.py:328] 2026-07-17 16:34:25,457 >> `torch_dtype` is deprecated! Use `dtype` instead!
-`torch_dtype` is deprecated! Use `dtype` instead!
-`torch_dtype` is deprecated! Use `dtype` instead!
-`torch_dtype` is deprecated! Use `dtype` instead!
-`torch_dtype` is deprecated! Use `dtype` instead!
-[INFO|modeling_utils.py:1277] 2026-07-17 16:34:25,488 >> loading weights file /public/home/ljt/lzm/model/Qwen2.5-Math-7B-Instruct/model.safetensors.index.json
-[INFO|modeling_utils.py:1351] 2026-07-17 16:34:25,489 >> Will use dtype=torch.bfloat16 as defined in model's config object
-[INFO|modeling_utils.py:2466] 2026-07-17 16:34:25,489 >> Instantiating Qwen2ForCausalLM model under default dtype torch.bfloat16.
-[INFO|modeling_utils.py:4489] 2026-07-17 16:34:25,489 >> Detected DeepSpeed ZeRO-3: activating zero.init() for this model
-[INFO|configuration_utils.py:1055] 2026-07-17 16:34:25,579 >> Generate config GenerationConfig {
-  "bos_token_id": 151643,
-  "eos_token_id": 151645,
-  "use_cache": false
-}
-
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:06<00:18,  6.19s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:06<00:18,  6.21s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:06<00:18,  6.18s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:06<00:18,  6.20s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:06<00:18,  6.18s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:06<00:18,  6.16s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:06<00:18,  6.17s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:06<00:19,  6.63s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:12<00:12,  6.26s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:12<00:12,  6.25s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:12<00:12,  6.24s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:12<00:12,  6.25s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:12<00:12,  6.25s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:12<00:12,  6.24s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:12<00:12,  6.24s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:12<00:12,  6.40s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:18<00:06,  6.30s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:18<00:06,  6.31s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:18<00:06,  6.30s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:18<00:06,  6.30s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:18<00:06,  6.30s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:18<00:06,  6.30s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:18<00:06,  6.29s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:19<00:06,  6.36s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:22<00:00,  5.45s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:22<00:00,  5.45s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:23<00:00,  5.46s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:22<00:00,  5.75s/it]
-Loading checkpoint shards: 100%|██████████| 4/4 [00:22<00:00,  5.45s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:23<00:00,  5.75s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:22<00:00,  5.75s/it]
-
-Loading checkpoint shards: 100%|██████████| 4/4 [00:22<00:00,  5.45s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:22<00:00,  5.45s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:22<00:00,  5.74s/it]
-Loading checkpoint shards: 100%|██████████| 4/4 [00:23<00:00,  5.45s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:22<00:00,  5.75s/it]
-Loading checkpoint shards: 100%|██████████| 4/4 [00:22<00:00,  5.74s/it]
-Loading checkpoint shards: 100%|██████████| 4/4 [00:23<00:00,  5.75s/it]
-The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
-The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
-The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
-The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
-The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
-The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
-The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
-Loading checkpoint shards: 100%|██████████| 4/4 [00:24<00:00,  6.01s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:24<00:00,  6.16s/it]
-[INFO|modeling_utils.py:5721] 2026-07-17 16:34:51,892 >> All model checkpoint weights were used when initializing Qwen2ForCausalLM.
-
-[INFO|modeling_utils.py:5729] 2026-07-17 16:34:51,892 >> All the weights of Qwen2ForCausalLM were initialized from the model checkpoint at /public/home/ljt/lzm/model/Qwen2.5-Math-7B-Instruct.
-If your task is similar to the task the model of the checkpoint was trained on, you can already use Qwen2ForCausalLM for predictions without further training.
-[INFO|configuration_utils.py:1008] 2026-07-17 16:34:51,896 >> loading configuration file /public/home/ljt/lzm/model/Qwen2.5-Math-7B-Instruct/generation_config.json
-[INFO|configuration_utils.py:1055] 2026-07-17 16:34:51,896 >> Generate config GenerationConfig {
-  "bos_token_id": 151643,
-  "eos_token_id": [
-    151645,
-    151643
-  ],
-  "pad_token_id": 151643
-}
-
-[INFO|2026-07-17 16:34:51] llamafactory.model.model_utils.checkpointing:144 >> Gradient checkpointing enabled.
-[INFO|2026-07-17 16:34:51] llamafactory.model.model_utils.attention:144 >> Using torch SDPA for faster training and inference.
-[INFO|2026-07-17 16:34:51] llamafactory.model.adapter:144 >> DeepSpeed ZeRO3 detected, remaining trainable params in float32.
-[INFO|2026-07-17 16:34:51] llamafactory.model.adapter:144 >> Fine-tuning method: Full
-[INFO|2026-07-17 16:34:51] llamafactory.model.loader:144 >> trainable params: 7,615,616,512 || all params: 7,615,616,512 || trainable%: 100.0000
-[RANK 0] Detected kernel version 3.10.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
-[INFO|trainer.py:757] 2026-07-17 16:34:51,930 >> Using auto half precision backend
-[WARNING|trainer.py:985] 2026-07-17 16:34:51,935 >> The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
-[RANK 0] Gradient accumulation steps mismatch: GradientAccumulationPlugin has 1, DeepSpeed config has 32. Using DeepSpeed's value.
-[INFO|trainer.py:2523] 2026-07-17 16:34:56,026 >> ***** Running training *****
-[INFO|trainer.py:2524] 2026-07-17 16:34:56,026 >>   Num examples = 91,128
-[INFO|trainer.py:2525] 2026-07-17 16:34:56,026 >>   Num Epochs = 3
-[INFO|trainer.py:2526] 2026-07-17 16:34:56,026 >>   Instantaneous batch size per device = 1
-[INFO|trainer.py:2529] 2026-07-17 16:34:56,026 >>   Total train batch size (w. parallel, distributed & accumulation) = 256
-[INFO|trainer.py:2530] 2026-07-17 16:34:56,026 >>   Gradient Accumulation steps = 32
-[INFO|trainer.py:2531] 2026-07-17 16:34:56,026 >>   Total optimization steps = 1,068
-[INFO|trainer.py:2532] 2026-07-17 16:34:56,027 >>   Number of trainable parameters = 7,615,616,512
-  0%|          | 0/1068 [00:00<?, ?it/s]  0%|          | 1/1068 [02:37<46:41:53, 157.56s/it]  0%|          | 2/1068 [05:08<45:34:53, 153.93s/it]  0%|          | 3/1068 [07:38<44:54:22, 151.80s/it]  0%|          | 4/1068 [10:10<44:52:03, 151.81s/it]  0%|          | 5/1068 [12:42<44:54:55, 152.11s/it]  1%|          | 6/1068 [15:13<44:44:57, 151.69s/it]  1%|          | 7/1068 [17:44<44:40:43, 151.60s/it]  1%|          | 8/1068 [20:14<44:26:00, 150.91s/it]  1%|          | 9/1068 [22:42<44:07:33, 150.00s/it]  1%|          | 10/1068 [25:12<44:03:29, 149.91s/it]  1%|          | 11/1068 [27:41<43:58:47, 149.79s/it]  1%|          | 12/1068 [30:14<44:15:21, 150.87s/it]  1%|          | 13/1068 [32:46<44:15:32, 151.03s/it]  1%|▏         | 14/1068 [35:22<44:41:34, 152.65s/it]  1%|▏         | 15/1068 [37:54<44:36:24, 152.50s/it]  1%|▏         | 16/1068 [40:26<44:30:12, 152.29s/it]  2%|▏         | 17/1068 [42:57<44:17:44, 151.73s/it]  2%|▏         | 18/1068 [45:30<44:25:30, 152.31s/it]  2%|▏         | 19/1068 [48:02<44:21:34, 152.23s/it]  2%|▏         | 20/1068 [50:32<44:07:14, 151.56s/it]  2%|▏         | 21/1068 [53:02<43:55:17, 151.02s/it]  2%|▏         | 22/1068 [55:35<44:01:26, 151.52s/it]  2%|▏         | 23/1068 [58:07<44:02:45, 151.74s/it]  2%|▏         | 24/1068 [1:00:38<43:58:01, 151.61s/it]  2%|▏         | 25/1068 [1:03:08<43:43:00, 150.89s/it]                                                       {'loss': 0.2824, 'grad_norm': 0.34256877238441913, 'learning_rate': 1.4545454545454546e-05, 'epoch': 0.07}
-  2%|▏         | 25/1068 [1:03:08<43:43:00, 150.89s/it]  2%|▏         | 26/1068 [1:05:36<43:30:10, 150.30s/it]  3%|▎         | 27/1068 [1:08:08<43:34:04, 150.67s/it]  3%|▎         | 28/1068 [1:10:41<43:43:14, 151.34s/it]  3%|▎         | 29/1068 [1:13:13<43:43:50, 151.52s/it]  3%|▎         | 30/1068 [1:15:46<43:47:57, 151.91s/it]  3%|▎         | 31/1068 [1:18:18<43:45:35, 151.91s/it]  3%|▎         | 32/1068 [1:20:47<43:31:17, 151.23s/it]  3%|▎         | 33/1068 [1:23:19<43:29:44, 151.29s/it]  3%|▎         | 34/1068 [1:25:47<43:14:13, 150.54s/it]  3%|▎         | 35/1068 [1:28:18<43:13:32, 150.64s/it]  3%|▎         | 36/1068 [1:30:49<43:09:00, 150.52s/it]  3%|▎         | 37/1068 [1:33:22<43:22:18, 151.44s/it]  4%|▎         | 38/1068 [1:35:52<43:11:24, 150.96s/it]  4%|▎         | 39/1068 [1:38:20<42:53:00, 150.03s/it]  4%|▎         | 40/1068 [1:40:53<43:08:44, 151.09s/it]  4%|▍         | 41/1068 [1:43:22<42:52:00, 150.26s/it]  4%|▍         | 42/1068 [1:45:55<43:03:17, 151.07s/it]  4%|▍         | 43/1068 [1:48:26<43:02:00, 151.14s/it]  4%|▍         | 44/1068 [1:50:57<42:56:19, 150.96s/it]  4%|▍         | 45/1068 [1:53:30<43:05:03, 151.62s/it]  4%|▍         | 46/1068 [1:56:02<43:06:31, 151.85s/it]  4%|▍         | 47/1068 [1:58:34<43:02:05, 151.74s/it]  4%|▍         | 48/1068 [2:01:03<42:47:31, 151.03s/it]  5%|▍         | 49/1068 [2:03:31<42:29:43, 150.13s/it]  5%|▍         | 50/1068 [2:06:01<42:28:44, 150.22s/it]                                                       {'loss': 0.0729, 'grad_norm': 0.2664263900934053, 'learning_rate': 1.9988209189696766e-05, 'epoch': 0.14}
-  5%|▍         | 50/1068 [2:06:01<42:28:44, 150.22s/it][INFO|trainer.py:4623] 2026-07-17 18:40:57,991 >> 
-***** Running Evaluation *****
-[INFO|trainer.py:4625] 2026-07-17 18:40:57,992 >>   Num examples = 10126
-[INFO|trainer.py:4628] 2026-07-17 18:40:57,992 >>   Batch size = 1
-
-  0%|          | 0/1266 [00:00<?, ?it/s][A
-  0%|          | 2/1266 [00:01<15:03,  1.40it/s][A
-  0%|          | 3/1266 [00:02<21:15,  1.01s/it][A
-  0%|          | 4/1266 [00:04<24:19,  1.16s/it][A
-  0%|          | 5/1266 [00:05<26:21,  1.25s/it][A
-  0%|          | 6/1266 [00:07<27:18,  1.30s/it][A
-  1%|          | 7/1266 [00:08<27:52,  1.33s/it][A
-  1%|          | 8/1266 [00:09<28:26,  1.36s/it][A
-  1%|          | 9/1266 [00:11<28:40,  1.37s/it][A
-  1%|          | 10/1266 [00:12<29:37,  1.42s/it][A
-  1%|          | 11/1266 [00:14<29:53,  1.43s/it][A
-  1%|          | 12/1266 [00:15<30:13,  1.45s/it][A
-  1%|          | 13/1266 [00:17<30:20,  1.45s/it][A
-  1%|          | 14/1266 [00:18<29:56,  1.43s/it][A
-  1%|          | 15/1266 [00:20<29:43,  1.43s/it][A
-  1%|▏         | 16/1266 [00:21<29:33,  1.42s/it][A
-  1%|▏         | 17/1266 [00:22<29:39,  1.42s/it][A
-  1%|▏         | 18/1266 [00:24<29:30,  1.42s/it][A
-  2%|▏         | 19/1266 [00:25<30:16,  1.46s/it][A
-  2%|▏         | 20/1266 [00:27<30:04,  1.45s/it][A
-  2%|▏         | 21/1266 [00:28<29:47,  1.44s/it][A
-  2%|▏         | 22/1266 [00:30<31:06,  1.50s/it][A
-  2%|▏         | 23/1266 [00:31<30:34,  1.48s/it][A
-  2%|▏         | 24/1266 [00:33<30:09,  1.46s/it][A
-  2%|▏         | 25/1266 [00:34<29:47,  1.44s/it][A
-  2%|▏         | 26/1266 [00:35<29:38,  1.43s/it][A
-  2%|▏         | 27/1266 [00:37<29:34,  1.43s/it][A
-  2%|▏         | 28/1266 [00:38<29:33,  1.43s/it][A
-  2%|▏         | 29/1266 [00:40<29:20,  1.42s/it][A
-  2%|▏         | 30/1266 [00:41<29:20,  1.42s/it][A
-  2%|▏         | 31/1266 [00:43<30:02,  1.46s/it][A
-  3%|▎         | 32/1266 [00:44<29:49,  1.45s/it][A
-  3%|▎         | 33/1266 [00:46<29:38,  1.44s/it][A
-  3%|▎         | 34/1266 [00:47<30:46,  1.50s/it][A
-  3%|▎         | 35/1266 [00:49<30:59,  1.51s/it][A
-  3%|▎         | 36/1266 [00:50<30:18,  1.48s/it][A
-  3%|▎         | 37/1266 [00:52<30:16,  1.48s/it][A
-  3%|▎         | 38/1266 [00:53<30:00,  1.47s/it][A
-  3%|▎         | 39/1266 [00:54<29:44,  1.45s/it][A
-  3%|▎         | 40/1266 [00:56<29:34,  1.45s/it][A
-  3%|▎         | 41/1266 [00:57<29:30,  1.45s/it][A
-  3%|▎         | 42/1266 [00:59<29:15,  1.43s/it][A
-  3%|▎         | 43/1266 [01:00<29:03,  1.43s/it][A
-  3%|▎         | 44/1266 [01:02<28:56,  1.42s/it][A
-  4%|▎         | 45/1266 [01:03<28:49,  1.42s/it][A
-  4%|▎         | 46/1266 [01:04<29:02,  1.43s/it][A
-  4%|▎         | 47/1266 [01:06<28:54,  1.42s/it][A
-  4%|▍         | 48/1266 [01:07<28:43,  1.42s/it][A
-  4%|▍         | 49/1266 [01:09<28:53,  1.42s/it][A
-  4%|▍         | 50/1266 [01:10<28:40,  1.41s/it][A
-  4%|▍         | 51/1266 [01:11<28:44,  1.42s/it][A
-  4%|▍         | 52/1266 [01:13<28:33,  1.41s/it][A
-  4%|▍         | 53/1266 [01:14<28:41,  1.42s/it][A
-  4%|▍         | 54/1266 [01:16<28:31,  1.41s/it][A
-  4%|▍         | 55/1266 [01:17<28:23,  1.41s/it][A
-  4%|▍         | 56/1266 [01:19<28:23,  1.41s/it][A
-  5%|▍         | 57/1266 [01:20<28:22,  1.41s/it][A
-  5%|▍         | 58/1266 [01:21<28:33,  1.42s/it][A
-  5%|▍         | 59/1266 [01:23<28:47,  1.43s/it][A
-  5%|▍         | 60/1266 [01:24<28:33,  1.42s/it][A
-  5%|▍         | 61/1266 [01:26<28:30,  1.42s/it][A
-  5%|▍         | 62/1266 [01:27<28:24,  1.42s/it][A
-  5%|▍         | 63/1266 [01:28<28:15,  1.41s/it][A
-  5%|▌         | 64/1266 [01:30<28:14,  1.41s/it][A
-  5%|▌         | 65/1266 [01:31<28:15,  1.41s/it][A
-  5%|▌         | 66/1266 [01:33<28:08,  1.41s/it][A
-  5%|▌         | 67/1266 [01:34<28:08,  1.41s/it][A
-  5%|▌         | 68/1266 [01:35<28:08,  1.41s/it][A
-  5%|▌         | 69/1266 [01:37<28:46,  1.44s/it][A
-  6%|▌         | 70/1266 [01:39<29:56,  1.50s/it][A
-  6%|▌         | 71/1266 [01:40<29:31,  1.48s/it][A
-  6%|▌         | 72/1266 [01:42<29:19,  1.47s/it][A
-  6%|▌         | 73/1266 [01:43<28:52,  1.45s/it][A
-  6%|▌         | 74/1266 [01:44<28:41,  1.44s/it][A
-  6%|▌         | 75/1266 [01:46<28:29,  1.44s/it][A
-  6%|▌         | 76/1266 [01:47<28:15,  1.42s/it][A
-  6%|▌         | 77/1266 [01:49<28:17,  1.43s/it][A
-  6%|▌         | 78/1266 [01:50<28:10,  1.42s/it][A
-  6%|▌         | 79/1266 [01:52<28:35,  1.45s/it][A
-  6%|▋         | 80/1266 [01:53<28:23,  1.44s/it][A
-  6%|▋         | 81/1266 [01:54<29:05,  1.47s/it][A
-  6%|▋         | 82/1266 [01:56<29:12,  1.48s/it][A
-  7%|▋         | 83/1266 [01:57<29:03,  1.47s/it][A
-  7%|▋         | 84/1266 [01:59<28:46,  1.46s/it][A
-  7%|▋         | 85/1266 [02:00<28:33,  1.45s/it][A
-  7%|▋         | 86/1266 [02:02<28:19,  1.44s/it][A
-  7%|▋         | 87/1266 [02:03<28:06,  1.43s/it][A
-  7%|▋         | 88/1266 [02:05<28:17,  1.44s/it][A
-  7%|▋         | 89/1266 [02:06<28:06,  1.43s/it][A
-  7%|▋         | 90/1266 [02:07<27:51,  1.42s/it][A
-  7%|▋         | 91/1266 [02:09<27:43,  1.42s/it][A
-  7%|▋         | 92/1266 [02:10<28:07,  1.44s/it][A
-  7%|▋         | 93/1266 [02:12<28:15,  1.45s/it][A
-  7%|▋         | 94/1266 [02:13<28:19,  1.45s/it][A
-  8%|▊         | 95/1266 [02:15<27:58,  1.43s/it][A
-  8%|▊         | 96/1266 [02:16<28:13,  1.45s/it][A
-  8%|▊         | 97/1266 [02:18<28:09,  1.45s/it][A
-  8%|▊         | 98/1266 [02:19<28:08,  1.45s/it][A
-  8%|▊         | 99/1266 [02:20<27:48,  1.43s/it][A
-  8%|▊         | 100/1266 [02:22<27:49,  1.43s/it][A
-  8%|▊         | 101/1266 [02:23<27:53,  1.44s/it][A
-  8%|▊         | 102/1266 [02:25<27:51,  1.44s/it][A
-  8%|▊         | 103/1266 [02:26<27:54,  1.44s/it][A
-  8%|▊         | 104/1266 [02:28<27:42,  1.43s/it][A
-  8%|▊         | 105/1266 [02:29<27:55,  1.44s/it][A
-  8%|▊         | 106/1266 [02:31<28:30,  1.47s/it][A
-  8%|▊         | 107/1266 [02:32<28:09,  1.46s/it][A
-  9%|▊         | 108/1266 [02:33<27:54,  1.45s/it][A
-  9%|▊         | 109/1266 [02:35<27:41,  1.44s/it][A
-  9%|▊         | 110/1266 [02:36<28:24,  1.47s/it][A
-  9%|▉         | 111/1266 [02:38<27:58,  1.45s/it][A
-  9%|▉         | 112/1266 [02:39<27:39,  1.44s/it][A
-  9%|▉         | 113/1266 [02:41<27:53,  1.45s/it][A
-  9%|▉         | 114/1266 [02:42<27:55,  1.45s/it][A
-  9%|▉         | 115/1266 [02:44<27:51,  1.45s/it][A
-  9%|▉         | 116/1266 [02:45<27:29,  1.43s/it][A
-  9%|▉         | 117/1266 [02:46<27:31,  1.44s/it][A
-  9%|▉         | 118/1266 [02:48<27:29,  1.44s/it][A
-  9%|▉         | 119/1266 [02:49<28:11,  1.47s/it][A
-  9%|▉         | 120/1266 [02:51<27:48,  1.46s/it][A
- 10%|▉         | 121/1266 [02:52<27:31,  1.44s/it][A
- 10%|▉         | 122/1266 [02:54<27:22,  1.44s/it][A
- 10%|▉         | 123/1266 [02:55<27:32,  1.45s/it][A
- 10%|▉         | 124/1266 [02:57<27:18,  1.43s/it][A
- 10%|▉         | 125/1266 [02:58<27:05,  1.42s/it][A
- 10%|▉         | 126/1266 [02:59<26:55,  1.42s/it][A
- 10%|█         | 127/1266 [03:01<26:47,  1.41s/it][A
- 10%|█         | 128/1266 [03:02<26:43,  1.41s/it][A
- 10%|█         | 129/1266 [03:04<26:43,  1.41s/it][A
- 10%|█         | 130/1266 [03:05<27:08,  1.43s/it][A
- 10%|█         | 131/1266 [03:06<27:13,  1.44s/it][A
- 10%|█         | 132/1266 [03:08<26:56,  1.43s/it][A
- 11%|█         | 133/1266 [03:09<27:08,  1.44s/it][A
- 11%|█         | 134/1266 [03:11<27:12,  1.44s/it][A
- 11%|█         | 135/1266 [03:12<27:09,  1.44s/it][A
- 11%|█         | 136/1266 [03:14<27:20,  1.45s/it][A
- 11%|█         | 137/1266 [03:15<27:18,  1.45s/it][A
- 11%|█         | 138/1266 [03:17<27:34,  1.47s/it][A
- 11%|█         | 139/1266 [03:18<27:07,  1.44s/it][A
- 11%|█         | 140/1266 [03:20<27:10,  1.45s/it][A
- 11%|█         | 141/1266 [03:21<26:55,  1.44s/it][A
- 11%|█         | 142/1266 [03:22<26:56,  1.44s/it][A
- 11%|█▏        | 143/1266 [03:24<26:43,  1.43s/it][A
- 11%|█▏        | 144/1266 [03:25<27:09,  1.45s/it][A
- 11%|█▏        | 145/1266 [03:27<26:53,  1.44s/it][A
- 12%|█▏        | 146/1266 [03:28<26:38,  1.43s/it][A
- 12%|█▏        | 147/1266 [03:30<26:36,  1.43s/it][A
- 12%|█▏        | 148/1266 [03:31<26:34,  1.43s/it][A
- 12%|█▏        | 149/1266 [03:33<27:20,  1.47s/it][A
- 12%|█▏        | 150/1266 [03:34<27:41,  1.49s/it][A
- 12%|█▏        | 151/1266 [03:35<27:14,  1.47s/it][A
- 12%|█▏        | 152/1266 [03:37<26:49,  1.44s/it][A
- 12%|█▏        | 153/1266 [03:38<27:32,  1.48s/it][A
- 12%|█▏        | 154/1266 [03:40<26:59,  1.46s/it][A
- 12%|█▏        | 155/1266 [03:41<26:39,  1.44s/it][A
- 12%|█▏        | 156/1266 [03:43<26:22,  1.43s/it][A
- 12%|█▏        | 157/1266 [03:44<26:17,  1.42s/it][A
- 12%|█▏        | 158/1266 [03:45<26:10,  1.42s/it][A
- 13%|█▎        | 159/1266 [03:47<26:02,  1.41s/it][A
- 13%|█▎        | 160/1266 [03:48<26:43,  1.45s/it][A
- 13%|█▎        | 161/1266 [03:50<26:50,  1.46s/it][A
- 13%|█▎        | 162/1266 [03:51<26:53,  1.46s/it][A
- 13%|█▎        | 163/1266 [03:53<26:51,  1.46s/it][A
- 13%|█▎        | 164/1266 [03:54<26:34,  1.45s/it][A
- 13%|█▎        | 165/1266 [03:56<26:38,  1.45s/it][A
- 13%|█▎        | 166/1266 [03:57<26:41,  1.46s/it][A
- 13%|█▎        | 167/1266 [03:59<26:51,  1.47s/it][A
- 13%|█▎        | 168/1266 [04:00<26:33,  1.45s/it][A
- 13%|█▎        | 169/1266 [04:01<26:17,  1.44s/it][A
- 13%|█▎        | 170/1266 [04:03<26:03,  1.43s/it][A
- 14%|█▎        | 171/1266 [04:04<25:50,  1.42s/it][A
- 14%|█▎        | 172/1266 [04:06<25:43,  1.41s/it][A
- 14%|█▎        | 173/1266 [04:07<25:45,  1.41s/it][A
- 14%|█▎        | 174/1266 [04:08<25:37,  1.41s/it][A
- 14%|█▍        | 175/1266 [04:10<25:32,  1.40s/it][A
- 14%|█▍        | 176/1266 [04:11<25:45,  1.42s/it][A
- 14%|█▍        | 177/1266 [04:13<26:28,  1.46s/it][A
- 14%|█▍        | 178/1266 [04:14<26:16,  1.45s/it][A
- 14%|█▍        | 179/1266 [04:16<26:35,  1.47s/it][A
- 14%|█▍        | 180/1266 [04:17<26:53,  1.49s/it][A
- 14%|█▍        | 181/1266 [04:19<26:41,  1.48s/it][A
- 14%|█▍        | 182/1266 [04:20<26:52,  1.49s/it][A
- 14%|█▍        | 183/1266 [04:22<26:39,  1.48s/it][A
- 15%|█▍        | 184/1266 [04:23<26:20,  1.46s/it][A
- 15%|█▍        | 185/1266 [04:25<25:58,  1.44s/it][A
- 15%|█▍        | 186/1266 [04:26<25:46,  1.43s/it][A
- 15%|█▍        | 187/1266 [04:27<26:07,  1.45s/it][A
- 15%|█▍        | 188/1266 [04:29<25:58,  1.45s/it][A
- 15%|█▍        | 189/1266 [04:30<25:58,  1.45s/it][A
- 15%|█▌        | 190/1266 [04:32<25:43,  1.43s/it][A
- 15%|█▌        | 191/1266 [04:33<25:34,  1.43s/it][A
- 15%|█▌        | 192/1266 [04:35<26:10,  1.46s/it][A
- 15%|█▌        | 193/1266 [04:36<25:51,  1.45s/it][A
- 15%|█▌        | 194/1266 [04:38<25:36,  1.43s/it][A
- 15%|█▌        | 195/1266 [04:39<25:31,  1.43s/it][A
- 15%|█▌        | 196/1266 [04:40<25:58,  1.46s/it][A
- 16%|█▌        | 197/1266 [04:42<25:44,  1.44s/it][A
- 16%|█▌        | 198/1266 [04:43<25:31,  1.43s/it][A
- 16%|█▌        | 199/1266 [04:45<25:27,  1.43s/it][A
- 16%|█▌        | 200/1266 [04:46<26:06,  1.47s/it][A
- 16%|█▌        | 201/1266 [04:48<25:54,  1.46s/it][A
- 16%|█▌        | 202/1266 [04:49<25:54,  1.46s/it][A
- 16%|█▌        | 203/1266 [04:51<26:09,  1.48s/it][A
- 16%|█▌        | 204/1266 [04:52<25:46,  1.46s/it][A
- 16%|█▌        | 205/1266 [04:54<25:36,  1.45s/it][A
- 16%|█▋        | 206/1266 [04:55<25:24,  1.44s/it][A
- 16%|█▋        | 207/1266 [04:56<25:25,  1.44s/it][A
- 16%|█▋        | 208/1266 [04:58<25:38,  1.45s/it][A
- 17%|█▋        | 209/1266 [04:59<25:54,  1.47s/it][A
- 17%|█▋        | 210/1266 [05:01<25:49,  1.47s/it][A
- 17%|█▋        | 211/1266 [05:02<26:10,  1.49s/it][A
- 17%|█▋        | 212/1266 [05:04<25:48,  1.47s/it][A
- 17%|█▋        | 213/1266 [05:05<25:35,  1.46s/it][A
- 17%|█▋        | 214/1266 [05:07<25:16,  1.44s/it][A
- 17%|█▋        | 215/1266 [05:08<25:05,  1.43s/it][A
- 17%|█▋        | 216/1266 [05:09<24:59,  1.43s/it][A
- 17%|█▋        | 217/1266 [05:11<24:52,  1.42s/it][A
- 17%|█▋        | 218/1266 [05:12<24:41,  1.41s/it][A
- 17%|█▋        | 219/1266 [05:14<24:32,  1.41s/it][A
- 17%|█▋        | 220/1266 [05:15<24:32,  1.41s/it][A
- 17%|█▋        | 221/1266 [05:17<24:42,  1.42s/it][A
- 18%|█▊        | 222/1266 [05:18<24:38,  1.42s/it][A
- 18%|█▊        | 223/1266 [05:19<24:30,  1.41s/it][A
- 18%|█▊        | 224/1266 [05:21<24:31,  1.41s/it][A
- 18%|█▊        | 225/1266 [05:22<24:41,  1.42s/it][A
- 18%|█▊        | 226/1266 [05:24<24:54,  1.44s/it][A
- 18%|█▊        | 227/1266 [05:25<24:50,  1.43s/it][A
- 18%|█▊        | 228/1266 [05:26<24:41,  1.43s/it][A
- 18%|█▊        | 229/1266 [05:28<25:07,  1.45s/it][A
- 18%|█▊        | 230/1266 [05:29<25:04,  1.45s/it][A
- 18%|█▊        | 231/1266 [05:31<25:21,  1.47s/it][A
- 18%|█▊        | 232/1266 [05:32<25:16,  1.47s/it][A
- 18%|█▊        | 233/1266 [05:34<25:36,  1.49s/it][A
- 18%|█▊        | 234/1266 [05:35<25:24,  1.48s/it][A
- 19%|█▊        | 235/1266 [05:37<25:01,  1.46s/it][A
- 19%|█▊        | 236/1266 [05:38<25:05,  1.46s/it][A
- 19%|█▊        | 237/1266 [05:40<24:45,  1.44s/it][A
- 19%|█▉        | 238/1266 [05:41<24:38,  1.44s/it][A
- 19%|█▉        | 239/1266 [05:43<24:37,  1.44s/it][A
- 19%|█▉        | 240/1266 [05:44<24:40,  1.44s/it][A
- 19%|█▉        | 241/1266 [05:45<24:29,  1.43s/it][A
- 19%|█▉        | 242/1266 [05:47<24:18,  1.42s/it][A
- 19%|█▉        | 243/1266 [05:48<24:11,  1.42s/it][A
- 19%|█▉        | 244/1266 [05:50<25:09,  1.48s/it][A
- 19%|█▉        | 245/1266 [05:51<24:54,  1.46s/it][A
- 19%|█▉        | 246/1266 [05:53<24:36,  1.45s/it][A
- 20%|█▉        | 247/1266 [05:54<24:23,  1.44s/it][A
- 20%|█▉        | 248/1266 [05:56<24:14,  1.43s/it][A
- 20%|█▉        | 249/1266 [05:57<24:10,  1.43s/it][A
- 20%|█▉        | 250/1266 [05:58<24:09,  1.43s/it][A
- 20%|█▉        | 251/1266 [06:00<24:30,  1.45s/it][A
- 20%|█▉        | 252/1266 [06:01<24:22,  1.44s/it][A
- 20%|█▉        | 253/1266 [06:03<24:26,  1.45s/it][A
- 20%|██        | 254/1266 [06:04<24:28,  1.45s/it][A
- 20%|██        | 255/1266 [06:06<24:11,  1.44s/it][A
- 20%|██        | 256/1266 [06:07<23:58,  1.42s/it][A
- 20%|██        | 257/1266 [06:08<23:47,  1.42s/it][A
- 20%|██        | 258/1266 [06:10<23:40,  1.41s/it][A
- 20%|██        | 259/1266 [06:11<23:49,  1.42s/it][A
- 21%|██        | 260/1266 [06:13<23:40,  1.41s/it][A
- 21%|██        | 261/1266 [06:14<23:34,  1.41s/it][A
- 21%|██        | 262/1266 [06:16<24:23,  1.46s/it][A
- 21%|██        | 263/1266 [06:17<24:21,  1.46s/it][A
- 21%|██        | 264/1266 [06:18<24:08,  1.45s/it][A
- 21%|██        | 265/1266 [06:20<23:52,  1.43s/it][A
- 21%|██        | 266/1266 [06:21<23:40,  1.42s/it][A
- 21%|██        | 267/1266 [06:23<23:45,  1.43s/it][A
- 21%|██        | 268/1266 [06:24<23:49,  1.43s/it][A
- 21%|██        | 269/1266 [06:26<24:43,  1.49s/it][A
- 21%|██▏       | 270/1266 [06:27<24:47,  1.49s/it][A
- 21%|██▏       | 271/1266 [06:29<24:38,  1.49s/it][A
- 21%|██▏       | 272/1266 [06:30<24:23,  1.47s/it][A
- 22%|██▏       | 273/1266 [06:32<24:04,  1.45s/it][A
- 22%|██▏       | 274/1266 [06:33<23:56,  1.45s/it][A
- 22%|██▏       | 275/1266 [06:34<23:47,  1.44s/it][A
- 22%|██▏       | 276/1266 [06:36<23:34,  1.43s/it][A
- 22%|██▏       | 277/1266 [06:37<24:02,  1.46s/it][A
- 22%|██▏       | 278/1266 [06:39<23:56,  1.45s/it][A
- 22%|██▏       | 279/1266 [06:40<23:46,  1.45s/it][A
- 22%|██▏       | 280/1266 [06:42<24:01,  1.46s/it][A
- 22%|██▏       | 281/1266 [06:43<23:53,  1.45s/it][A
- 22%|██▏       | 282/1266 [06:45<23:33,  1.44s/it][A
- 22%|██▏       | 283/1266 [06:46<24:08,  1.47s/it][A
- 22%|██▏       | 284/1266 [06:48<23:47,  1.45s/it][A
- 23%|██▎       | 285/1266 [06:49<23:47,  1.45s/it][A
- 23%|██▎       | 286/1266 [06:51<24:15,  1.49s/it][A
- 23%|██▎       | 287/1266 [06:52<24:06,  1.48s/it][A
- 23%|██▎       | 288/1266 [06:53<23:56,  1.47s/it][A
- 23%|██▎       | 289/1266 [06:55<23:52,  1.47s/it][A
- 23%|██▎       | 290/1266 [06:56<23:34,  1.45s/it][A
- 23%|██▎       | 291/1266 [06:58<23:35,  1.45s/it][A
- 23%|██▎       | 292/1266 [06:59<23:27,  1.45s/it][A
- 23%|██▎       | 293/1266 [07:01<23:10,  1.43s/it][A
- 23%|██▎       | 294/1266 [07:02<23:16,  1.44s/it][A
- 23%|██▎       | 295/1266 [07:04<23:10,  1.43s/it][A
- 23%|██▎       | 296/1266 [07:05<23:00,  1.42s/it][A
- 23%|██▎       | 297/1266 [07:06<22:53,  1.42s/it][A
- 24%|██▎       | 298/1266 [07:08<22:49,  1.42s/it][A
- 24%|██▎       | 299/1266 [07:09<23:02,  1.43s/it][A
- 24%|██▎       | 300/1266 [07:11<23:27,  1.46s/it][A
- 24%|██▍       | 301/1266 [07:12<23:11,  1.44s/it][A
- 24%|██▍       | 302/1266 [07:14<23:02,  1.43s/it][A
- 24%|██▍       | 303/1266 [07:15<22:50,  1.42s/it][A
- 24%|██▍       | 304/1266 [07:16<22:43,  1.42s/it][A
- 24%|██▍       | 305/1266 [07:18<22:41,  1.42s/it][A
- 24%|██▍       | 306/1266 [07:19<22:45,  1.42s/it][A
- 24%|██▍       | 307/1266 [07:21<22:50,  1.43s/it][A
- 24%|██▍       | 308/1266 [07:22<23:05,  1.45s/it][A
- 24%|██▍       | 309/1266 [07:24<22:53,  1.44s/it][A
- 24%|██▍       | 310/1266 [07:25<22:45,  1.43s/it][A
- 25%|██▍       | 311/1266 [07:26<22:39,  1.42s/it][A
- 25%|██▍       | 312/1266 [07:28<22:34,  1.42s/it][A
- 25%|██▍       | 313/1266 [07:29<23:27,  1.48s/it][A
- 25%|██▍       | 314/1266 [07:31<23:30,  1.48s/it][A
- 25%|██▍       | 315/1266 [07:32<23:16,  1.47s/it][A
- 25%|██▍       | 316/1266 [07:34<23:44,  1.50s/it][A
- 25%|██▌       | 317/1266 [07:35<23:14,  1.47s/it][A
- 25%|██▌       | 318/1266 [07:37<23:01,  1.46s/it][A
- 25%|██▌       | 319/1266 [07:38<22:47,  1.44s/it][A
- 25%|██▌       | 320/1266 [07:40<22:37,  1.44s/it][A
- 25%|██▌       | 321/1266 [07:41<22:28,  1.43s/it][A
- 25%|██▌       | 322/1266 [07:42<22:32,  1.43s/it][A
- 26%|██▌       | 323/1266 [07:44<22:24,  1.43s/it][A
- 26%|██▌       | 324/1266 [07:45<22:14,  1.42s/it][A
- 26%|██▌       | 325/1266 [07:47<22:40,  1.45s/it][A
- 26%|██▌       | 326/1266 [07:48<22:27,  1.43s/it][A
- 26%|██▌       | 327/1266 [07:50<22:18,  1.43s/it][A
- 26%|██▌       | 328/1266 [07:51<22:07,  1.41s/it][A
- 26%|██▌       | 329/1266 [07:52<22:08,  1.42s/it][A
- 26%|██▌       | 330/1266 [07:54<22:06,  1.42s/it][A
- 26%|██▌       | 331/1266 [07:55<22:00,  1.41s/it][A
- 26%|██▌       | 332/1266 [07:57<22:16,  1.43s/it][A
- 26%|██▋       | 333/1266 [07:58<23:11,  1.49s/it][A
- 26%|██▋       | 334/1266 [08:00<22:59,  1.48s/it][A
- 26%|██▋       | 335/1266 [08:01<22:55,  1.48s/it][A
- 27%|██▋       | 336/1266 [08:03<22:38,  1.46s/it][A
- 27%|██▋       | 337/1266 [08:04<23:11,  1.50s/it][A
- 27%|██▋       | 338/1266 [08:06<22:46,  1.47s/it][A
- 27%|██▋       | 339/1266 [08:07<22:27,  1.45s/it][A
- 27%|██▋       | 340/1266 [08:08<22:25,  1.45s/it][A
- 27%|██▋       | 341/1266 [08:10<22:46,  1.48s/it][A
- 27%|██▋       | 342/1266 [08:11<22:33,  1.47s/it][A
- 27%|██▋       | 343/1266 [08:13<22:12,  1.44s/it][A
- 27%|██▋       | 344/1266 [08:14<22:45,  1.48s/it][A
- 27%|██▋       | 345/1266 [08:16<22:43,  1.48s/it][A
- 27%|██▋       | 346/1266 [08:17<22:20,  1.46s/it][A
- 27%|██▋       | 347/1266 [08:19<22:00,  1.44s/it][A
- 27%|██▋       | 348/1266 [08:20<21:59,  1.44s/it][A
- 28%|██▊       | 349/1266 [08:22<22:13,  1.45s/it][A
- 28%|██▊       | 350/1266 [08:23<22:07,  1.45s/it][A
- 28%|██▊       | 351/1266 [08:24<21:57,  1.44s/it][A
- 28%|██▊       | 352/1266 [08:26<21:53,  1.44s/it][A
- 28%|██▊       | 353/1266 [08:27<21:41,  1.43s/it][A
- 28%|██▊       | 354/1266 [08:29<22:14,  1.46s/it][A
- 28%|██▊       | 355/1266 [08:30<21:58,  1.45s/it][A
- 28%|██▊       | 356/1266 [08:32<21:46,  1.44s/it][A
- 28%|██▊       | 357/1266 [08:33<22:07,  1.46s/it][A
- 28%|██▊       | 358/1266 [08:35<22:39,  1.50s/it][A
- 28%|██▊       | 359/1266 [08:36<22:15,  1.47s/it][A
- 28%|██▊       | 360/1266 [08:38<21:53,  1.45s/it][A
- 29%|██▊       | 361/1266 [08:39<21:41,  1.44s/it][A
- 29%|██▊       | 362/1266 [08:40<21:33,  1.43s/it][A
- 29%|██▊       | 363/1266 [08:42<21:35,  1.43s/it][A
- 29%|██▉       | 364/1266 [08:43<22:08,  1.47s/it][A
- 29%|██▉       | 365/1266 [08:45<21:52,  1.46s/it][A
- 29%|██▉       | 366/1266 [08:46<22:20,  1.49s/it][A
- 29%|██▉       | 367/1266 [08:48<21:56,  1.46s/it][A
- 29%|██▉       | 368/1266 [08:49<21:39,  1.45s/it][A
- 29%|██▉       | 369/1266 [08:51<21:38,  1.45s/it][A
- 29%|██▉       | 370/1266 [08:52<21:31,  1.44s/it][A
- 29%|██▉       | 371/1266 [08:54<21:33,  1.45s/it][A
- 29%|██▉       | 372/1266 [08:55<21:35,  1.45s/it][A
- 29%|██▉       | 373/1266 [08:56<21:35,  1.45s/it][A
- 30%|██▉       | 374/1266 [08:58<21:22,  1.44s/it][A
- 30%|██▉       | 375/1266 [08:59<21:34,  1.45s/it][A
- 30%|██▉       | 376/1266 [09:01<21:15,  1.43s/it][A
- 30%|██▉       | 377/1266 [09:02<21:08,  1.43s/it][A
- 30%|██▉       | 378/1266 [09:04<21:01,  1.42s/it][A
- 30%|██▉       | 379/1266 [09:05<20:54,  1.41s/it][A
- 30%|███       | 380/1266 [09:06<20:49,  1.41s/it][A
- 30%|███       | 381/1266 [09:08<20:58,  1.42s/it][A
- 30%|███       | 382/1266 [09:09<21:03,  1.43s/it][A
- 30%|███       | 383/1266 [09:11<20:59,  1.43s/it][A
- 30%|███       | 384/1266 [09:12<20:52,  1.42s/it][A
- 30%|███       | 385/1266 [09:13<20:48,  1.42s/it][A
- 30%|███       | 386/1266 [09:15<20:42,  1.41s/it][A
- 31%|███       | 387/1266 [09:16<20:40,  1.41s/it][A
- 31%|███       | 388/1266 [09:18<20:47,  1.42s/it][A
- 31%|███       | 389/1266 [09:19<20:47,  1.42s/it][A
- 31%|███       | 390/1266 [09:21<20:43,  1.42s/it][A
- 31%|███       | 391/1266 [09:22<20:39,  1.42s/it][A
- 31%|███       | 392/1266 [09:23<20:44,  1.42s/it][A
- 31%|███       | 393/1266 [09:25<20:38,  1.42s/it][A
- 31%|███       | 394/1266 [09:26<20:46,  1.43s/it][A
- 31%|███       | 395/1266 [09:28<20:33,  1.42s/it][A
- 31%|███▏      | 396/1266 [09:29<20:34,  1.42s/it][A
- 31%|███▏      | 397/1266 [09:31<20:45,  1.43s/it][A
- 31%|███▏      | 398/1266 [09:32<20:52,  1.44s/it][A
- 32%|███▏      | 399/1266 [09:33<20:41,  1.43s/it][A
- 32%|███▏      | 400/1266 [09:35<20:47,  1.44s/it][A
- 32%|███▏      | 401/1266 [09:36<20:34,  1.43s/it][A
- 32%|███▏      | 402/1266 [09:38<20:34,  1.43s/it][A
- 32%|███▏      | 403/1266 [09:39<20:29,  1.42s/it][A
- 32%|███▏      | 404/1266 [09:41<21:05,  1.47s/it][A
- 32%|███▏      | 405/1266 [09:42<20:49,  1.45s/it][A
- 32%|███▏      | 406/1266 [09:44<20:46,  1.45s/it][A
- 32%|███▏      | 407/1266 [09:45<20:36,  1.44s/it][A
- 32%|███▏      | 408/1266 [09:46<20:34,  1.44s/it][A
- 32%|███▏      | 409/1266 [09:48<20:22,  1.43s/it][A
- 32%|███▏      | 410/1266 [09:49<20:23,  1.43s/it][A
- 32%|███▏      | 411/1266 [09:51<20:26,  1.43s/it][A
- 33%|███▎      | 412/1266 [09:52<20:14,  1.42s/it][A
- 33%|███▎      | 413/1266 [09:54<20:40,  1.45s/it][A
- 33%|███▎      | 414/1266 [09:55<20:27,  1.44s/it][A
- 33%|███▎      | 415/1266 [09:56<20:22,  1.44s/it][A
- 33%|███▎      | 416/1266 [09:58<20:09,  1.42s/it][A
- 33%|███▎      | 417/1266 [09:59<20:03,  1.42s/it][A
- 33%|███▎      | 418/1266 [10:01<20:38,  1.46s/it][A
- 33%|███▎      | 419/1266 [10:02<20:31,  1.45s/it][A
- 33%|███▎      | 420/1266 [10:04<20:25,  1.45s/it][A
- 33%|███▎      | 421/1266 [10:05<20:48,  1.48s/it][A
- 33%|███▎      | 422/1266 [10:07<20:29,  1.46s/it][A
- 33%|███▎      | 423/1266 [10:08<20:14,  1.44s/it][A
- 33%|███▎      | 424/1266 [10:09<20:04,  1.43s/it][A
- 34%|███▎      | 425/1266 [10:11<19:53,  1.42s/it][A
- 34%|███▎      | 426/1266 [10:12<19:58,  1.43s/it][A
- 34%|███▎      | 427/1266 [10:14<20:00,  1.43s/it][A
- 34%|███▍      | 428/1266 [10:15<19:51,  1.42s/it][A
- 34%|███▍      | 429/1266 [10:17<19:44,  1.42s/it][A
- 34%|███▍      | 430/1266 [10:18<19:50,  1.42s/it][A
- 34%|███▍      | 431/1266 [10:19<19:41,  1.42s/it][A
- 34%|███▍      | 432/1266 [10:21<19:39,  1.41s/it][A
- 34%|███▍      | 433/1266 [10:22<19:34,  1.41s/it][A
- 34%|███▍      | 434/1266 [10:24<19:40,  1.42s/it][A
- 34%|███▍      | 435/1266 [10:25<19:32,  1.41s/it][A
- 34%|███▍      | 436/1266 [10:26<19:37,  1.42s/it][A
- 35%|███▍      | 437/1266 [10:28<19:33,  1.42s/it][A
- 35%|███▍      | 438/1266 [10:29<19:35,  1.42s/it][A
- 35%|███▍      | 439/1266 [10:31<19:30,  1.42s/it][A
- 35%|███▍      | 440/1266 [10:32<19:28,  1.41s/it][A
- 35%|███▍      | 441/1266 [10:33<19:25,  1.41s/it][A
- 35%|███▍      | 442/1266 [10:35<19:31,  1.42s/it][A
- 35%|███▍      | 443/1266 [10:36<19:22,  1.41s/it][A
- 35%|███▌      | 444/1266 [10:38<19:20,  1.41s/it][A
- 35%|███▌      | 445/1266 [10:39<19:17,  1.41s/it][A
- 35%|███▌      | 446/1266 [10:41<19:16,  1.41s/it][A
- 35%|███▌      | 447/1266 [10:42<19:15,  1.41s/it][A
- 35%|███▌      | 448/1266 [10:43<19:22,  1.42s/it][A
- 35%|███▌      | 449/1266 [10:45<19:15,  1.41s/it][A
- 36%|███▌      | 450/1266 [10:46<20:05,  1.48s/it][A
- 36%|███▌      | 451/1266 [10:48<19:55,  1.47s/it][A
- 36%|███▌      | 452/1266 [10:49<19:39,  1.45s/it][A
- 36%|███▌      | 453/1266 [10:51<19:24,  1.43s/it][A
- 36%|███▌      | 454/1266 [10:52<19:21,  1.43s/it][A
- 36%|███▌      | 455/1266 [10:54<19:24,  1.44s/it][A
- 36%|███▌      | 456/1266 [10:55<19:33,  1.45s/it][A
- 36%|███▌      | 457/1266 [10:57<19:49,  1.47s/it][A
- 36%|███▌      | 458/1266 [10:58<20:09,  1.50s/it][A
- 36%|███▋      | 459/1266 [11:00<19:49,  1.47s/it][A
- 36%|███▋      | 460/1266 [11:01<19:44,  1.47s/it][A
- 36%|███▋      | 461/1266 [11:02<19:29,  1.45s/it][A
- 36%|███▋      | 462/1266 [11:04<19:55,  1.49s/it][A
- 37%|███▋      | 463/1266 [11:05<19:33,  1.46s/it][A
- 37%|███▋      | 464/1266 [11:07<19:25,  1.45s/it][A
- 37%|███▋      | 465/1266 [11:08<19:14,  1.44s/it][A
- 37%|███▋      | 466/1266 [11:10<19:07,  1.43s/it][A
- 37%|███▋      | 467/1266 [11:11<19:14,  1.45s/it][A
- 37%|███▋      | 468/1266 [11:13<18:59,  1.43s/it][A
- 37%|███▋      | 469/1266 [11:14<18:54,  1.42s/it][A
- 37%|███▋      | 470/1266 [11:15<18:59,  1.43s/it][A
- 37%|███▋      | 471/1266 [11:17<19:19,  1.46s/it][A
- 37%|███▋      | 472/1266 [11:18<19:20,  1.46s/it][A
- 37%|███▋      | 473/1266 [11:20<19:07,  1.45s/it][A
- 37%|███▋      | 474/1266 [11:21<18:58,  1.44s/it][A
- 38%|███▊      | 475/1266 [11:23<19:22,  1.47s/it][A
- 38%|███▊      | 476/1266 [11:24<19:25,  1.48s/it][A
- 38%|███▊      | 477/1266 [11:26<19:11,  1.46s/it][A
- 38%|███▊      | 478/1266 [11:27<19:01,  1.45s/it][A
- 38%|███▊      | 479/1266 [11:29<19:06,  1.46s/it][A
- 38%|███▊      | 480/1266 [11:30<18:56,  1.45s/it][A
- 38%|███▊      | 481/1266 [11:31<18:46,  1.43s/it][A
- 38%|███▊      | 482/1266 [11:33<18:40,  1.43s/it][A
- 38%|███▊      | 483/1266 [11:34<18:33,  1.42s/it][A
- 38%|███▊      | 484/1266 [11:36<18:36,  1.43s/it][A
- 38%|███▊      | 485/1266 [11:37<18:42,  1.44s/it][A
- 38%|███▊      | 486/1266 [11:39<19:09,  1.47s/it][A
- 38%|███▊      | 487/1266 [11:40<18:59,  1.46s/it][A
- 39%|███▊      | 488/1266 [11:41<18:44,  1.45s/it][A
- 39%|███▊      | 489/1266 [11:43<18:32,  1.43s/it][A
- 39%|███▊      | 490/1266 [11:44<18:22,  1.42s/it][A
- 39%|███▉      | 491/1266 [11:46<18:17,  1.42s/it][A
- 39%|███▉      | 492/1266 [11:47<18:13,  1.41s/it][A
- 39%|███▉      | 493/1266 [11:49<18:12,  1.41s/it][A
- 39%|███▉      | 494/1266 [11:50<18:16,  1.42s/it][A
- 39%|███▉      | 495/1266 [11:51<18:11,  1.42s/it][A
- 39%|███▉      | 496/1266 [11:53<18:17,  1.42s/it][A
- 39%|███▉      | 497/1266 [11:54<18:20,  1.43s/it][A
- 39%|███▉      | 498/1266 [11:56<18:47,  1.47s/it][A
- 39%|███▉      | 499/1266 [11:57<18:28,  1.44s/it][A
- 39%|███▉      | 500/1266 [11:59<18:18,  1.43s/it][A
- 40%|███▉      | 501/1266 [12:00<18:12,  1.43s/it][A
- 40%|███▉      | 502/1266 [12:01<18:03,  1.42s/it][A
- 40%|███▉      | 503/1266 [12:03<18:05,  1.42s/it][A
- 40%|███▉      | 504/1266 [12:04<17:58,  1.42s/it][A
- 40%|███▉      | 505/1266 [12:06<17:52,  1.41s/it][A
- 40%|███▉      | 506/1266 [12:07<17:50,  1.41s/it][A
- 40%|████      | 507/1266 [12:08<17:48,  1.41s/it][A
- 40%|████      | 508/1266 [12:10<17:49,  1.41s/it][A
- 40%|████      | 509/1266 [12:11<17:54,  1.42s/it][A
- 40%|████      | 510/1266 [12:13<17:57,  1.42s/it][A
- 40%|████      | 511/1266 [12:14<18:34,  1.48s/it][A
- 40%|████      | 512/1266 [12:16<18:36,  1.48s/it][A
- 41%|████      | 513/1266 [12:17<18:19,  1.46s/it][A
- 41%|████      | 514/1266 [12:19<18:07,  1.45s/it][A
- 41%|████      | 515/1266 [12:20<18:00,  1.44s/it][A
- 41%|████      | 516/1266 [12:22<18:29,  1.48s/it][A
- 41%|████      | 517/1266 [12:23<18:16,  1.46s/it][A
- 41%|████      | 518/1266 [12:25<18:16,  1.47s/it][A
- 41%|████      | 519/1266 [12:26<17:59,  1.44s/it][A
- 41%|████      | 520/1266 [12:27<17:51,  1.44s/it][A
- 41%|████      | 521/1266 [12:29<18:36,  1.50s/it][A
- 41%|████      | 522/1266 [12:30<18:12,  1.47s/it][A
- 41%|████▏     | 523/1266 [12:32<17:56,  1.45s/it][A
- 41%|████▏     | 524/1266 [12:33<18:04,  1.46s/it][A
- 41%|████▏     | 525/1266 [12:35<18:00,  1.46s/it][A
- 42%|████▏     | 526/1266 [12:36<17:48,  1.44s/it][A
- 42%|████▏     | 527/1266 [12:38<17:38,  1.43s/it][A
- 42%|████▏     | 528/1266 [12:39<17:49,  1.45s/it][A
- 42%|████▏     | 529/1266 [12:40<17:45,  1.45s/it][A
- 42%|████▏     | 530/1266 [12:42<17:50,  1.45s/it][A
- 42%|████▏     | 531/1266 [12:43<17:40,  1.44s/it][A
- 42%|████▏     | 532/1266 [12:45<17:39,  1.44s/it][A
- 42%|████▏     | 533/1266 [12:46<17:46,  1.45s/it][A
- 42%|████▏     | 534/1266 [12:48<17:58,  1.47s/it][A
- 42%|████▏     | 535/1266 [12:49<17:38,  1.45s/it][A
- 42%|████▏     | 536/1266 [12:51<17:30,  1.44s/it][A
- 42%|████▏     | 537/1266 [12:52<17:23,  1.43s/it][A
- 42%|████▏     | 538/1266 [12:53<17:21,  1.43s/it][A
- 43%|████▎     | 539/1266 [12:55<17:26,  1.44s/it][A
- 43%|████▎     | 540/1266 [12:56<17:24,  1.44s/it][A
- 43%|████▎     | 541/1266 [12:58<17:15,  1.43s/it][A
- 43%|████▎     | 542/1266 [12:59<17:25,  1.44s/it][A
- 43%|████▎     | 543/1266 [13:01<17:15,  1.43s/it][A
- 43%|████▎     | 544/1266 [13:02<17:13,  1.43s/it][A
- 43%|████▎     | 545/1266 [13:04<17:48,  1.48s/it][A
- 43%|████▎     | 546/1266 [13:05<17:28,  1.46s/it][A
- 43%|████▎     | 547/1266 [13:07<17:29,  1.46s/it][A
- 43%|████▎     | 548/1266 [13:08<17:42,  1.48s/it][A
- 43%|████▎     | 549/1266 [13:10<17:39,  1.48s/it][A
- 43%|████▎     | 550/1266 [13:11<17:26,  1.46s/it][A
- 44%|████▎     | 551/1266 [13:12<17:13,  1.45s/it][A
- 44%|████▎     | 552/1266 [13:14<17:08,  1.44s/it][A
- 44%|████▎     | 553/1266 [13:15<16:58,  1.43s/it][A
- 44%|████▍     | 554/1266 [13:17<17:10,  1.45s/it][A
- 44%|████▍     | 555/1266 [13:18<17:01,  1.44s/it][A
- 44%|████▍     | 556/1266 [13:20<16:59,  1.44s/it][A
- 44%|████▍     | 557/1266 [13:21<17:02,  1.44s/it][A
- 44%|████▍     | 558/1266 [13:23<17:43,  1.50s/it][A
- 44%|████▍     | 559/1266 [13:24<17:21,  1.47s/it][A
- 44%|████▍     | 560/1266 [13:25<17:08,  1.46s/it][A
- 44%|████▍     | 561/1266 [13:27<16:59,  1.45s/it][A
- 44%|████▍     | 562/1266 [13:28<17:03,  1.45s/it][A
- 44%|████▍     | 563/1266 [13:30<16:48,  1.44s/it][A
- 45%|████▍     | 564/1266 [13:31<16:49,  1.44s/it][A
- 45%|████▍     | 565/1266 [13:33<16:46,  1.44s/it][A
- 45%|████▍     | 566/1266 [13:34<17:02,  1.46s/it][A
- 45%|████▍     | 567/1266 [13:36<17:02,  1.46s/it][A
- 45%|████▍     | 568/1266 [13:37<16:48,  1.45s/it][A
- 45%|████▍     | 569/1266 [13:38<16:42,  1.44s/it][A
- 45%|████▌     | 570/1266 [13:40<16:37,  1.43s/it][A
- 45%|████▌     | 571/1266 [13:41<16:42,  1.44s/it][A
- 45%|████▌     | 572/1266 [13:43<16:35,  1.43s/it][A
- 45%|████▌     | 573/1266 [13:44<16:41,  1.44s/it][A
- 45%|████▌     | 574/1266 [13:46<16:32,  1.43s/it][A
- 45%|████▌     | 575/1266 [13:47<16:29,  1.43s/it][A
- 45%|████▌     | 576/1266 [13:48<16:20,  1.42s/it][A
- 46%|████▌     | 577/1266 [13:50<16:32,  1.44s/it][A
- 46%|████▌     | 578/1266 [13:51<16:23,  1.43s/it][A
- 46%|████▌     | 579/1266 [13:53<16:25,  1.44s/it][A
- 46%|████▌     | 580/1266 [13:54<16:17,  1.43s/it][A
- 46%|████▌     | 581/1266 [13:56<16:11,  1.42s/it][A
- 46%|████▌     | 582/1266 [13:57<16:24,  1.44s/it][A
- 46%|████▌     | 583/1266 [13:59<16:20,  1.44s/it][A
- 46%|████▌     | 584/1266 [14:00<16:25,  1.44s/it][A
- 46%|████▌     | 585/1266 [14:01<16:19,  1.44s/it][A
- 46%|████▋     | 586/1266 [14:03<16:21,  1.44s/it][A
- 46%|████▋     | 587/1266 [14:04<16:14,  1.44s/it][A
- 46%|████▋     | 588/1266 [14:06<16:17,  1.44s/it][A
- 47%|████▋     | 589/1266 [14:07<16:15,  1.44s/it][A
- 47%|████▋     | 590/1266 [14:09<16:08,  1.43s/it][A
- 47%|████▋     | 591/1266 [14:10<16:22,  1.46s/it][A
- 47%|████▋     | 592/1266 [14:11<16:09,  1.44s/it][A
- 47%|████▋     | 593/1266 [14:13<16:01,  1.43s/it][A
- 47%|████▋     | 594/1266 [14:14<16:02,  1.43s/it][A
- 47%|████▋     | 595/1266 [14:16<16:05,  1.44s/it][A
- 47%|████▋     | 596/1266 [14:17<16:08,  1.45s/it][A
- 47%|████▋     | 597/1266 [14:19<16:06,  1.44s/it][A
- 47%|████▋     | 598/1266 [14:20<15:54,  1.43s/it][A
- 47%|████▋     | 599/1266 [14:22<15:56,  1.43s/it][A
- 47%|████▋     | 600/1266 [14:23<16:22,  1.48s/it][A
- 47%|████▋     | 601/1266 [14:24<16:04,  1.45s/it][A
- 48%|████▊     | 602/1266 [14:26<15:56,  1.44s/it][A
- 48%|████▊     | 603/1266 [14:27<15:58,  1.45s/it][A
- 48%|████▊     | 604/1266 [14:29<15:52,  1.44s/it][A
- 48%|████▊     | 605/1266 [14:30<15:58,  1.45s/it][A
- 48%|████▊     | 606/1266 [14:32<16:09,  1.47s/it][A
- 48%|████▊     | 607/1266 [14:33<15:54,  1.45s/it][A
- 48%|████▊     | 608/1266 [14:35<15:42,  1.43s/it][A
- 48%|████▊     | 609/1266 [14:36<15:33,  1.42s/it][A
- 48%|████▊     | 610/1266 [14:37<15:51,  1.45s/it][A
- 48%|████▊     | 611/1266 [14:39<15:39,  1.43s/it][A
- 48%|████▊     | 612/1266 [14:40<15:41,  1.44s/it][A
- 48%|████▊     | 613/1266 [14:42<15:45,  1.45s/it][A
- 48%|████▊     | 614/1266 [14:43<15:49,  1.46s/it][A
- 49%|████▊     | 615/1266 [14:45<15:50,  1.46s/it][A
- 49%|████▊     | 616/1266 [14:46<15:45,  1.45s/it][A
- 49%|████▊     | 617/1266 [14:48<15:37,  1.44s/it][A
- 49%|████▉     | 618/1266 [14:49<15:25,  1.43s/it][A
- 49%|████▉     | 619/1266 [14:50<15:28,  1.43s/it][A
- 49%|████▉     | 620/1266 [14:52<15:22,  1.43s/it][A
- 49%|████▉     | 621/1266 [14:53<15:37,  1.45s/it][A
- 49%|████▉     | 622/1266 [14:55<15:33,  1.45s/it][A
- 49%|████▉     | 623/1266 [14:56<15:30,  1.45s/it][A
- 49%|████▉     | 624/1266 [14:58<15:20,  1.43s/it][A
- 49%|████▉     | 625/1266 [14:59<15:12,  1.42s/it][A
- 49%|████▉     | 626/1266 [15:00<15:07,  1.42s/it][A
- 50%|████▉     | 627/1266 [15:02<15:25,  1.45s/it][A
- 50%|████▉     | 628/1266 [15:03<15:20,  1.44s/it][A
- 50%|████▉     | 629/1266 [15:05<15:11,  1.43s/it][A
- 50%|████▉     | 630/1266 [15:06<15:21,  1.45s/it][A
- 50%|████▉     | 631/1266 [15:08<15:09,  1.43s/it][A
- 50%|████▉     | 632/1266 [15:09<15:01,  1.42s/it][A
- 50%|█████     | 633/1266 [15:11<15:02,  1.43s/it][A
- 50%|█████     | 634/1266 [15:12<14:59,  1.42s/it][A
- 50%|█████     | 635/1266 [15:13<14:57,  1.42s/it][A
- 50%|█████     | 636/1266 [15:15<14:54,  1.42s/it][A
- 50%|█████     | 637/1266 [15:16<14:55,  1.42s/it][A
- 50%|█████     | 638/1266 [15:18<14:49,  1.42s/it][A
- 50%|█████     | 639/1266 [15:19<14:46,  1.41s/it][A
- 51%|█████     | 640/1266 [15:20<14:41,  1.41s/it][A
- 51%|█████     | 641/1266 [15:22<15:01,  1.44s/it][A
- 51%|█████     | 642/1266 [15:23<14:59,  1.44s/it][A
- 51%|█████     | 643/1266 [15:25<14:54,  1.44s/it][A
- 51%|█████     | 644/1266 [15:26<14:47,  1.43s/it][A
- 51%|█████     | 645/1266 [15:28<15:02,  1.45s/it][A
- 51%|█████     | 646/1266 [15:29<15:28,  1.50s/it][A
- 51%|█████     | 647/1266 [15:31<15:07,  1.47s/it][A
- 51%|█████     | 648/1266 [15:32<15:09,  1.47s/it][A
- 51%|█████▏    | 649/1266 [15:34<15:06,  1.47s/it][A
- 51%|█████▏    | 650/1266 [15:35<15:03,  1.47s/it][A
- 51%|█████▏    | 651/1266 [15:37<15:03,  1.47s/it][A
- 52%|█████▏    | 652/1266 [15:38<14:50,  1.45s/it][A
- 52%|█████▏    | 653/1266 [15:39<14:45,  1.44s/it][A
- 52%|█████▏    | 654/1266 [15:41<14:34,  1.43s/it][A
- 52%|█████▏    | 655/1266 [15:42<14:27,  1.42s/it][A
- 52%|█████▏    | 656/1266 [15:44<14:31,  1.43s/it][A
- 52%|█████▏    | 657/1266 [15:45<14:24,  1.42s/it][A
- 52%|█████▏    | 658/1266 [15:47<14:30,  1.43s/it][A
- 52%|█████▏    | 659/1266 [15:48<14:36,  1.44s/it][A
- 52%|█████▏    | 660/1266 [15:49<14:27,  1.43s/it][A
- 52%|█████▏    | 661/1266 [15:51<14:26,  1.43s/it][A
- 52%|█████▏    | 662/1266 [15:52<14:28,  1.44s/it][A
- 52%|█████▏    | 663/1266 [15:54<14:50,  1.48s/it][A
- 52%|█████▏    | 664/1266 [15:55<14:39,  1.46s/it][A
- 53%|█████▎    | 665/1266 [15:57<14:27,  1.44s/it][A
- 53%|█████▎    | 666/1266 [15:58<14:26,  1.44s/it][A
- 53%|█████▎    | 667/1266 [16:00<14:18,  1.43s/it][A
- 53%|█████▎    | 668/1266 [16:01<14:37,  1.47s/it][A
- 53%|█████▎    | 669/1266 [16:02<14:24,  1.45s/it][A
- 53%|█████▎    | 670/1266 [16:04<14:17,  1.44s/it][A
- 53%|█████▎    | 671/1266 [16:05<14:19,  1.44s/it][A
- 53%|█████▎    | 672/1266 [16:07<14:21,  1.45s/it][A
- 53%|█████▎    | 673/1266 [16:08<14:18,  1.45s/it][A
- 53%|█████▎    | 674/1266 [16:10<14:23,  1.46s/it][A
- 53%|█████▎    | 675/1266 [16:11<14:13,  1.44s/it][A
- 53%|█████▎    | 676/1266 [16:13<14:11,  1.44s/it][A
- 53%|█████▎    | 677/1266 [16:14<14:04,  1.43s/it][A
- 54%|█████▎    | 678/1266 [16:15<14:09,  1.44s/it][A
- 54%|█████▎    | 679/1266 [16:17<13:59,  1.43s/it][A
- 54%|█████▎    | 680/1266 [16:18<14:02,  1.44s/it][A
- 54%|█████▍    | 681/1266 [16:20<13:58,  1.43s/it][A
- 54%|█████▍    | 682/1266 [16:21<13:51,  1.42s/it][A
- 54%|█████▍    | 683/1266 [16:23<14:06,  1.45s/it][A
- 54%|█████▍    | 684/1266 [16:24<14:01,  1.45s/it][A
- 54%|█████▍    | 685/1266 [16:26<14:00,  1.45s/it][A
- 54%|█████▍    | 686/1266 [16:27<14:01,  1.45s/it][A
- 54%|█████▍    | 687/1266 [16:28<13:52,  1.44s/it][A
- 54%|█████▍    | 688/1266 [16:30<13:51,  1.44s/it][A
- 54%|█████▍    | 689/1266 [16:31<13:45,  1.43s/it][A
- 55%|█████▍    | 690/1266 [16:33<13:37,  1.42s/it][A
- 55%|█████▍    | 691/1266 [16:34<13:42,  1.43s/it][A
- 55%|█████▍    | 692/1266 [16:36<13:35,  1.42s/it][A
- 55%|█████▍    | 693/1266 [16:37<13:42,  1.44s/it][A
- 55%|█████▍    | 694/1266 [16:38<13:36,  1.43s/it][A
- 55%|█████▍    | 695/1266 [16:40<13:29,  1.42s/it][A
- 55%|█████▍    | 696/1266 [16:41<13:35,  1.43s/it][A
- 55%|█████▌    | 697/1266 [16:43<13:31,  1.43s/it][A
- 55%|█████▌    | 698/1266 [16:44<13:35,  1.44s/it][A
- 55%|█████▌    | 699/1266 [16:46<13:44,  1.45s/it][A
- 55%|█████▌    | 700/1266 [16:47<13:51,  1.47s/it][A
- 55%|█████▌    | 701/1266 [16:49<13:39,  1.45s/it][A
- 55%|█████▌    | 702/1266 [16:50<13:40,  1.46s/it][A
- 56%|█████▌    | 703/1266 [16:51<13:33,  1.44s/it][A
- 56%|█████▌    | 704/1266 [16:53<13:29,  1.44s/it][A
- 56%|█████▌    | 705/1266 [16:54<13:39,  1.46s/it][A
- 56%|█████▌    | 706/1266 [16:56<13:26,  1.44s/it][A
- 56%|█████▌    | 707/1266 [16:57<13:19,  1.43s/it][A
- 56%|█████▌    | 708/1266 [16:59<13:32,  1.46s/it][A
- 56%|█████▌    | 709/1266 [17:00<13:26,  1.45s/it][A
- 56%|█████▌    | 710/1266 [17:02<13:19,  1.44s/it][A
- 56%|█████▌    | 711/1266 [17:03<13:11,  1.43s/it][A
- 56%|█████▌    | 712/1266 [17:04<13:06,  1.42s/it][A
- 56%|█████▋    | 713/1266 [17:06<13:05,  1.42s/it][A
- 56%|█████▋    | 714/1266 [17:07<13:01,  1.42s/it][A
- 56%|█████▋    | 715/1266 [17:09<13:01,  1.42s/it][A
- 57%|█████▋    | 716/1266 [17:10<13:14,  1.44s/it][A
- 57%|█████▋    | 717/1266 [17:11<13:05,  1.43s/it][A
- 57%|█████▋    | 718/1266 [17:13<13:00,  1.42s/it][A
- 57%|█████▋    | 719/1266 [17:14<12:59,  1.43s/it][A
- 57%|█████▋    | 720/1266 [17:16<13:05,  1.44s/it][A
- 57%|█████▋    | 721/1266 [17:17<13:01,  1.43s/it][A
- 57%|█████▋    | 722/1266 [17:19<12:54,  1.42s/it][A
- 57%|█████▋    | 723/1266 [17:20<12:50,  1.42s/it][A
- 57%|█████▋    | 724/1266 [17:21<12:47,  1.42s/it][A
- 57%|█████▋    | 725/1266 [17:23<12:59,  1.44s/it][A
- 57%|█████▋    | 726/1266 [17:24<12:53,  1.43s/it][A
- 57%|█████▋    | 727/1266 [17:26<12:51,  1.43s/it][A
- 58%|█████▊    | 728/1266 [17:27<12:44,  1.42s/it][A
- 58%|█████▊    | 729/1266 [17:29<13:01,  1.45s/it][A
- 58%|█████▊    | 730/1266 [17:30<12:57,  1.45s/it][A
- 58%|█████▊    | 731/1266 [17:32<12:58,  1.46s/it][A
- 58%|█████▊    | 732/1266 [17:33<12:47,  1.44s/it][A
- 58%|█████▊    | 733/1266 [17:34<12:47,  1.44s/it][A
- 58%|█████▊    | 734/1266 [17:36<12:45,  1.44s/it][A
- 58%|█████▊    | 735/1266 [17:37<12:54,  1.46s/it][A
- 58%|█████▊    | 736/1266 [17:39<12:51,  1.46s/it][A
- 58%|█████▊    | 737/1266 [17:40<12:39,  1.44s/it][A
- 58%|█████▊    | 738/1266 [17:42<12:31,  1.42s/it][A
- 58%|█████▊    | 739/1266 [17:43<12:34,  1.43s/it][A
- 58%|█████▊    | 740/1266 [17:44<12:29,  1.42s/it][A
- 59%|█████▊    | 741/1266 [17:46<12:30,  1.43s/it][A
- 59%|█████▊    | 742/1266 [17:48<13:07,  1.50s/it][A
- 59%|█████▊    | 743/1266 [17:49<12:54,  1.48s/it][A
- 59%|█████▉    | 744/1266 [17:50<12:44,  1.46s/it][A
- 59%|█████▉    | 745/1266 [17:52<12:33,  1.45s/it][A
- 59%|█████▉    | 746/1266 [17:53<12:27,  1.44s/it][A
- 59%|█████▉    | 747/1266 [17:55<12:17,  1.42s/it][A
- 59%|█████▉    | 748/1266 [17:56<12:15,  1.42s/it][A
- 59%|█████▉    | 749/1266 [17:58<12:19,  1.43s/it][A
- 59%|█████▉    | 750/1266 [17:59<12:43,  1.48s/it][A
- 59%|█████▉    | 751/1266 [18:01<12:47,  1.49s/it][A
- 59%|█████▉    | 752/1266 [18:02<12:35,  1.47s/it][A
- 59%|█████▉    | 753/1266 [18:04<12:32,  1.47s/it][A
- 60%|█████▉    | 754/1266 [18:05<13:10,  1.54s/it][A
- 60%|█████▉    | 755/1266 [18:07<12:46,  1.50s/it][A
- 60%|█████▉    | 756/1266 [18:08<12:31,  1.47s/it][A
- 60%|█████▉    | 757/1266 [18:09<12:18,  1.45s/it][A
- 60%|█████▉    | 758/1266 [18:11<12:09,  1.44s/it][A
- 60%|█████▉    | 759/1266 [18:12<12:03,  1.43s/it][A
- 60%|██████    | 760/1266 [18:14<12:03,  1.43s/it][A
- 60%|██████    | 761/1266 [18:15<12:04,  1.43s/it][A
- 60%|██████    | 762/1266 [18:17<11:57,  1.42s/it][A
- 60%|██████    | 763/1266 [18:18<11:56,  1.42s/it][A
- 60%|██████    | 764/1266 [18:19<11:50,  1.42s/it][A
- 60%|██████    | 765/1266 [18:21<11:54,  1.43s/it][A
- 61%|██████    | 766/1266 [18:22<11:49,  1.42s/it][A
- 61%|██████    | 767/1266 [18:24<11:44,  1.41s/it][A
- 61%|██████    | 768/1266 [18:25<11:44,  1.41s/it][A
- 61%|██████    | 769/1266 [18:26<11:43,  1.42s/it][A
- 61%|██████    | 770/1266 [18:28<12:21,  1.50s/it][A
- 61%|██████    | 771/1266 [18:30<12:06,  1.47s/it][A
- 61%|██████    | 772/1266 [18:31<11:53,  1.44s/it][A
- 61%|██████    | 773/1266 [18:32<11:58,  1.46s/it][A
- 61%|██████    | 774/1266 [18:34<11:54,  1.45s/it][A
- 61%|██████    | 775/1266 [18:35<11:50,  1.45s/it][A
- 61%|██████▏   | 776/1266 [18:37<11:44,  1.44s/it][A
- 61%|██████▏   | 777/1266 [18:38<11:37,  1.43s/it][A
- 61%|██████▏   | 778/1266 [18:40<11:33,  1.42s/it][A
- 62%|██████▏   | 779/1266 [18:41<11:39,  1.44s/it][A
- 62%|██████▏   | 780/1266 [18:42<11:32,  1.43s/it][A
- 62%|██████▏   | 781/1266 [18:44<11:29,  1.42s/it][A
- 62%|██████▏   | 782/1266 [18:45<11:38,  1.44s/it][A
- 62%|██████▏   | 783/1266 [18:47<11:34,  1.44s/it][A
- 62%|██████▏   | 784/1266 [18:48<11:29,  1.43s/it][A
- 62%|██████▏   | 785/1266 [18:50<11:41,  1.46s/it][A
- 62%|██████▏   | 786/1266 [18:51<11:46,  1.47s/it][A
- 62%|██████▏   | 787/1266 [18:53<11:35,  1.45s/it][A
- 62%|██████▏   | 788/1266 [18:54<11:26,  1.44s/it][A
- 62%|██████▏   | 789/1266 [18:55<11:21,  1.43s/it][A
- 62%|██████▏   | 790/1266 [18:57<11:17,  1.42s/it][A
- 62%|██████▏   | 791/1266 [18:58<11:41,  1.48s/it][A
- 63%|██████▎   | 792/1266 [19:00<11:30,  1.46s/it][A
- 63%|██████▎   | 793/1266 [19:01<11:32,  1.46s/it][A
- 63%|██████▎   | 794/1266 [19:03<11:40,  1.48s/it][A
- 63%|██████▎   | 795/1266 [19:04<11:39,  1.49s/it][A
- 63%|██████▎   | 796/1266 [19:06<11:29,  1.47s/it][A
- 63%|██████▎   | 797/1266 [19:07<11:23,  1.46s/it][A
- 63%|██████▎   | 798/1266 [19:09<11:16,  1.44s/it][A
- 63%|██████▎   | 799/1266 [19:10<11:09,  1.43s/it][A
- 63%|██████▎   | 800/1266 [19:11<11:05,  1.43s/it][A
- 63%|██████▎   | 801/1266 [19:13<11:09,  1.44s/it][A
- 63%|██████▎   | 802/1266 [19:14<11:03,  1.43s/it][A
- 63%|██████▎   | 803/1266 [19:16<10:57,  1.42s/it][A
- 64%|██████▎   | 804/1266 [19:17<10:53,  1.41s/it][A
- 64%|██████▎   | 805/1266 [19:19<10:56,  1.42s/it][A
- 64%|██████▎   | 806/1266 [19:20<10:55,  1.42s/it][A
- 64%|██████▎   | 807/1266 [19:21<11:05,  1.45s/it][A
- 64%|██████▍   | 808/1266 [19:23<10:58,  1.44s/it][A
- 64%|██████▍   | 809/1266 [19:24<10:52,  1.43s/it][A
- 64%|██████▍   | 810/1266 [19:26<11:06,  1.46s/it][A
- 64%|██████▍   | 811/1266 [19:27<10:57,  1.44s/it][A
- 64%|██████▍   | 812/1266 [19:29<10:51,  1.44s/it][A
- 64%|██████▍   | 813/1266 [19:30<10:51,  1.44s/it][A
- 64%|██████▍   | 814/1266 [19:32<10:57,  1.45s/it][A
- 64%|██████▍   | 815/1266 [19:33<10:53,  1.45s/it][A
- 64%|██████▍   | 816/1266 [19:34<10:46,  1.44s/it][A
- 65%|██████▍   | 817/1266 [19:36<10:41,  1.43s/it][A
- 65%|██████▍   | 818/1266 [19:37<10:36,  1.42s/it][A
- 65%|██████▍   | 819/1266 [19:39<10:52,  1.46s/it][A
- 65%|██████▍   | 820/1266 [19:40<10:43,  1.44s/it][A
- 65%|██████▍   | 821/1266 [19:42<10:40,  1.44s/it][A
- 65%|██████▍   | 822/1266 [19:43<10:35,  1.43s/it][A
- 65%|██████▌   | 823/1266 [19:44<10:36,  1.44s/it][A
- 65%|██████▌   | 824/1266 [19:46<10:44,  1.46s/it][A
- 65%|██████▌   | 825/1266 [19:47<10:37,  1.45s/it][A
- 65%|██████▌   | 826/1266 [19:49<10:33,  1.44s/it][A
- 65%|██████▌   | 827/1266 [19:50<10:28,  1.43s/it][A
- 65%|██████▌   | 828/1266 [19:52<10:27,  1.43s/it][A
- 65%|██████▌   | 829/1266 [19:53<10:24,  1.43s/it][A
- 66%|██████▌   | 830/1266 [19:55<10:32,  1.45s/it][A
- 66%|██████▌   | 831/1266 [19:56<10:37,  1.47s/it][A
- 66%|██████▌   | 832/1266 [19:58<11:04,  1.53s/it][A
- 66%|██████▌   | 833/1266 [19:59<10:47,  1.50s/it][A
- 66%|██████▌   | 834/1266 [20:01<10:32,  1.46s/it][A
- 66%|██████▌   | 835/1266 [20:02<10:23,  1.45s/it][A
- 66%|██████▌   | 836/1266 [20:03<10:27,  1.46s/it][A
- 66%|██████▌   | 837/1266 [20:05<10:21,  1.45s/it][A
- 66%|██████▌   | 838/1266 [20:06<10:17,  1.44s/it][A
- 66%|██████▋   | 839/1266 [20:08<10:17,  1.45s/it][A
- 66%|██████▋   | 840/1266 [20:09<10:19,  1.45s/it][A
- 66%|██████▋   | 841/1266 [20:11<10:28,  1.48s/it][A
- 67%|██████▋   | 842/1266 [20:12<10:18,  1.46s/it][A
- 67%|██████▋   | 843/1266 [20:14<10:19,  1.46s/it][A
- 67%|██████▋   | 844/1266 [20:15<10:09,  1.44s/it][A
- 67%|██████▋   | 845/1266 [20:17<10:16,  1.47s/it][A
- 67%|██████▋   | 846/1266 [20:18<10:06,  1.44s/it][A
- 67%|██████▋   | 847/1266 [20:19<10:08,  1.45s/it][A
- 67%|██████▋   | 848/1266 [20:21<10:04,  1.45s/it][A
- 67%|██████▋   | 849/1266 [20:22<10:04,  1.45s/it][A
- 67%|██████▋   | 850/1266 [20:24<10:12,  1.47s/it][A
- 67%|██████▋   | 851/1266 [20:25<10:09,  1.47s/it][A
- 67%|██████▋   | 852/1266 [20:27<10:01,  1.45s/it][A
- 67%|██████▋   | 853/1266 [20:28<09:59,  1.45s/it][A
- 67%|██████▋   | 854/1266 [20:30<09:51,  1.44s/it][A
- 68%|██████▊   | 855/1266 [20:31<09:57,  1.45s/it][A
- 68%|██████▊   | 856/1266 [20:33<10:00,  1.46s/it][A
- 68%|██████▊   | 857/1266 [20:34<09:53,  1.45s/it][A
- 68%|██████▊   | 858/1266 [20:35<09:52,  1.45s/it][A
- 68%|██████▊   | 859/1266 [20:37<09:43,  1.43s/it][A
- 68%|██████▊   | 860/1266 [20:38<09:38,  1.43s/it][A
- 68%|██████▊   | 861/1266 [20:40<09:44,  1.44s/it][A
- 68%|██████▊   | 862/1266 [20:41<09:47,  1.46s/it][A
- 68%|██████▊   | 863/1266 [20:43<09:46,  1.45s/it][A
- 68%|██████▊   | 864/1266 [20:44<09:48,  1.46s/it][A
- 68%|██████▊   | 865/1266 [20:46<09:40,  1.45s/it][A
- 68%|██████▊   | 866/1266 [20:47<09:32,  1.43s/it][A
- 68%|██████▊   | 867/1266 [20:48<09:30,  1.43s/it][A
- 69%|██████▊   | 868/1266 [20:50<09:26,  1.42s/it][A
- 69%|██████▊   | 869/1266 [20:51<09:21,  1.41s/it][A
- 69%|██████▊   | 870/1266 [20:53<09:20,  1.41s/it][A
- 69%|██████▉   | 871/1266 [20:54<09:18,  1.41s/it][A
- 69%|██████▉   | 872/1266 [20:55<09:17,  1.42s/it][A
- 69%|██████▉   | 873/1266 [20:57<09:14,  1.41s/it][A
- 69%|██████▉   | 874/1266 [20:58<09:12,  1.41s/it][A
- 69%|██████▉   | 875/1266 [21:00<09:10,  1.41s/it][A
- 69%|██████▉   | 876/1266 [21:01<09:09,  1.41s/it][A
- 69%|██████▉   | 877/1266 [21:03<09:29,  1.46s/it][A
- 69%|██████▉   | 878/1266 [21:04<09:59,  1.54s/it][A
- 69%|██████▉   | 879/1266 [21:06<09:46,  1.52s/it][A
- 70%|██████▉   | 880/1266 [21:07<09:30,  1.48s/it][A
- 70%|██████▉   | 881/1266 [21:09<09:21,  1.46s/it][A
- 70%|██████▉   | 882/1266 [21:10<09:21,  1.46s/it][A
- 70%|██████▉   | 883/1266 [21:12<09:14,  1.45s/it][A
- 70%|██████▉   | 884/1266 [21:13<09:07,  1.43s/it][A
- 70%|██████▉   | 885/1266 [21:14<09:03,  1.43s/it][A
- 70%|██████▉   | 886/1266 [21:16<09:10,  1.45s/it][A
- 70%|███████   | 887/1266 [21:17<09:03,  1.43s/it][A
- 70%|███████   | 888/1266 [21:19<08:59,  1.43s/it][A
- 70%|███████   | 889/1266 [21:20<09:03,  1.44s/it][A
- 70%|███████   | 890/1266 [21:22<08:58,  1.43s/it][A
- 70%|███████   | 891/1266 [21:23<08:55,  1.43s/it][A
- 70%|███████   | 892/1266 [21:24<08:51,  1.42s/it][A
- 71%|███████   | 893/1266 [21:26<08:48,  1.42s/it][A
- 71%|███████   | 894/1266 [21:27<08:59,  1.45s/it][A
- 71%|███████   | 895/1266 [21:29<08:53,  1.44s/it][A
- 71%|███████   | 896/1266 [21:30<08:48,  1.43s/it][A
- 71%|███████   | 897/1266 [21:31<08:44,  1.42s/it][A
- 71%|███████   | 898/1266 [21:33<08:49,  1.44s/it][A
- 71%|███████   | 899/1266 [21:34<08:44,  1.43s/it][A
- 71%|███████   | 900/1266 [21:36<08:47,  1.44s/it][A
- 71%|███████   | 901/1266 [21:37<08:46,  1.44s/it][A
- 71%|███████   | 902/1266 [21:39<08:39,  1.43s/it][A
- 71%|███████▏  | 903/1266 [21:40<08:40,  1.43s/it][A
- 71%|███████▏  | 904/1266 [21:42<08:41,  1.44s/it][A
- 71%|███████▏  | 905/1266 [21:43<08:36,  1.43s/it][A
- 72%|███████▏  | 906/1266 [21:44<08:33,  1.43s/it][A
- 72%|███████▏  | 907/1266 [21:46<08:40,  1.45s/it][A
- 72%|███████▏  | 908/1266 [21:47<08:35,  1.44s/it][A
- 72%|███████▏  | 909/1266 [21:49<08:30,  1.43s/it][A
- 72%|███████▏  | 910/1266 [21:50<08:27,  1.42s/it][A
- 72%|███████▏  | 911/1266 [21:52<08:24,  1.42s/it][A
- 72%|███████▏  | 912/1266 [21:53<08:37,  1.46s/it][A
- 72%|███████▏  | 913/1266 [21:55<08:34,  1.46s/it][A
- 72%|███████▏  | 914/1266 [21:56<08:27,  1.44s/it][A
- 72%|███████▏  | 915/1266 [21:57<08:21,  1.43s/it][A
- 72%|███████▏  | 916/1266 [21:59<08:18,  1.42s/it][A
- 72%|███████▏  | 917/1266 [22:00<08:13,  1.41s/it][A
- 73%|███████▎  | 918/1266 [22:02<08:15,  1.43s/it][A
- 73%|███████▎  | 919/1266 [22:03<08:15,  1.43s/it][A
- 73%|███████▎  | 920/1266 [22:05<08:17,  1.44s/it][A
- 73%|███████▎  | 921/1266 [22:06<08:14,  1.43s/it][A
- 73%|███████▎  | 922/1266 [22:07<08:09,  1.42s/it][A
- 73%|███████▎  | 923/1266 [22:09<08:08,  1.43s/it][A
- 73%|███████▎  | 924/1266 [22:10<08:06,  1.42s/it][A
- 73%|███████▎  | 925/1266 [22:12<08:03,  1.42s/it][A
- 73%|███████▎  | 926/1266 [22:13<08:06,  1.43s/it][A
- 73%|███████▎  | 927/1266 [22:14<08:01,  1.42s/it][A
- 73%|███████▎  | 928/1266 [22:16<07:59,  1.42s/it][A
- 73%|███████▎  | 929/1266 [22:17<07:56,  1.42s/it][A
- 73%|███████▎  | 930/1266 [22:19<07:54,  1.41s/it][A
- 74%|███████▎  | 931/1266 [22:20<07:52,  1.41s/it][A
- 74%|███████▎  | 932/1266 [22:21<07:50,  1.41s/it][A
- 74%|███████▎  | 933/1266 [22:23<07:48,  1.41s/it][A
- 74%|███████▍  | 934/1266 [22:24<07:47,  1.41s/it][A
- 74%|███████▍  | 935/1266 [22:26<07:44,  1.40s/it][A
- 74%|███████▍  | 936/1266 [22:27<07:45,  1.41s/it][A
- 74%|███████▍  | 937/1266 [22:29<07:47,  1.42s/it][A
- 74%|███████▍  | 938/1266 [22:30<07:44,  1.42s/it][A
- 74%|███████▍  | 939/1266 [22:31<07:40,  1.41s/it][A
- 74%|███████▍  | 940/1266 [22:33<07:38,  1.40s/it][A
- 74%|███████▍  | 941/1266 [22:34<07:35,  1.40s/it][A
- 74%|███████▍  | 942/1266 [22:36<07:36,  1.41s/it][A
- 74%|███████▍  | 943/1266 [22:37<07:39,  1.42s/it][A
- 75%|███████▍  | 944/1266 [22:39<07:51,  1.46s/it][A
- 75%|███████▍  | 945/1266 [22:40<07:47,  1.46s/it][A
- 75%|███████▍  | 946/1266 [22:41<07:45,  1.46s/it][A
- 75%|███████▍  | 947/1266 [22:43<07:39,  1.44s/it][A
- 75%|███████▍  | 948/1266 [22:44<07:41,  1.45s/it][A
- 75%|███████▍  | 949/1266 [22:46<07:43,  1.46s/it][A
- 75%|███████▌  | 950/1266 [22:47<07:49,  1.49s/it][A
- 75%|███████▌  | 951/1266 [22:49<07:40,  1.46s/it][A
- 75%|███████▌  | 952/1266 [22:50<07:36,  1.45s/it][A
- 75%|███████▌  | 953/1266 [22:52<07:42,  1.48s/it][A
- 75%|███████▌  | 954/1266 [22:53<07:34,  1.46s/it][A
- 75%|███████▌  | 955/1266 [22:55<07:28,  1.44s/it][A
- 76%|███████▌  | 956/1266 [22:56<07:24,  1.43s/it][A
- 76%|███████▌  | 957/1266 [22:57<07:20,  1.42s/it][A
- 76%|███████▌  | 958/1266 [22:59<07:18,  1.42s/it][A
- 76%|███████▌  | 959/1266 [23:00<07:20,  1.44s/it][A
- 76%|███████▌  | 960/1266 [23:02<07:25,  1.45s/it][A
- 76%|███████▌  | 961/1266 [23:03<07:21,  1.45s/it][A
- 76%|███████▌  | 962/1266 [23:05<07:19,  1.45s/it][A
- 76%|███████▌  | 963/1266 [23:06<07:30,  1.49s/it][A
- 76%|███████▌  | 964/1266 [23:08<07:24,  1.47s/it][A
- 76%|███████▌  | 965/1266 [23:09<07:20,  1.46s/it][A
- 76%|███████▋  | 966/1266 [23:11<07:13,  1.44s/it][A
- 76%|███████▋  | 967/1266 [23:12<07:10,  1.44s/it][A
- 76%|███████▋  | 968/1266 [23:13<07:09,  1.44s/it][A
- 77%|███████▋  | 969/1266 [23:15<07:05,  1.43s/it][A
- 77%|███████▋  | 970/1266 [23:16<07:01,  1.42s/it][A
- 77%|███████▋  | 971/1266 [23:18<06:57,  1.42s/it][A
- 77%|███████▋  | 972/1266 [23:19<07:00,  1.43s/it][A
- 77%|███████▋  | 973/1266 [23:21<06:57,  1.43s/it][A
- 77%|███████▋  | 974/1266 [23:22<06:55,  1.42s/it][A
- 77%|███████▋  | 975/1266 [23:23<06:56,  1.43s/it][A
- 77%|███████▋  | 976/1266 [23:25<06:53,  1.43s/it][A
- 77%|███████▋  | 977/1266 [23:26<06:50,  1.42s/it][A
- 77%|███████▋  | 978/1266 [23:28<06:49,  1.42s/it][A
- 77%|███████▋  | 979/1266 [23:29<06:50,  1.43s/it][A
- 77%|███████▋  | 980/1266 [23:31<06:49,  1.43s/it][A
- 77%|███████▋  | 981/1266 [23:32<06:45,  1.42s/it][A
- 78%|███████▊  | 982/1266 [23:33<06:45,  1.43s/it][A
- 78%|███████▊  | 983/1266 [23:35<06:47,  1.44s/it][A
- 78%|███████▊  | 984/1266 [23:36<06:56,  1.48s/it][A
- 78%|███████▊  | 985/1266 [23:38<07:03,  1.51s/it][A
- 78%|███████▊  | 986/1266 [23:39<06:54,  1.48s/it][A
- 78%|███████▊  | 987/1266 [23:41<06:49,  1.47s/it][A
- 78%|███████▊  | 988/1266 [23:42<06:41,  1.45s/it][A
- 78%|███████▊  | 989/1266 [23:44<06:36,  1.43s/it][A
- 78%|███████▊  | 990/1266 [23:45<06:33,  1.43s/it][A
- 78%|███████▊  | 991/1266 [23:46<06:29,  1.42s/it][A
- 78%|███████▊  | 992/1266 [23:48<06:27,  1.41s/it][A
- 78%|███████▊  | 993/1266 [23:49<06:26,  1.42s/it][A
- 79%|███████▊  | 994/1266 [23:51<06:25,  1.42s/it][A
- 79%|███████▊  | 995/1266 [23:52<06:23,  1.41s/it][A
- 79%|███████▊  | 996/1266 [23:54<06:30,  1.45s/it][A
- 79%|███████▉  | 997/1266 [23:55<06:26,  1.44s/it][A
- 79%|███████▉  | 998/1266 [23:56<06:21,  1.42s/it][A
- 79%|███████▉  | 999/1266 [23:58<06:19,  1.42s/it][A
- 79%|███████▉  | 1000/1266 [23:59<06:16,  1.42s/it][A
- 79%|███████▉  | 1001/1266 [24:01<06:16,  1.42s/it][A
- 79%|███████▉  | 1002/1266 [24:02<06:14,  1.42s/it][A
- 79%|███████▉  | 1003/1266 [24:04<06:15,  1.43s/it][A
- 79%|███████▉  | 1004/1266 [24:05<06:16,  1.44s/it][A
- 79%|███████▉  | 1005/1266 [24:06<06:13,  1.43s/it][A
- 79%|███████▉  | 1006/1266 [24:08<06:15,  1.44s/it][A
- 80%|███████▉  | 1007/1266 [24:09<06:10,  1.43s/it][A
- 80%|███████▉  | 1008/1266 [24:11<06:08,  1.43s/it][A
- 80%|███████▉  | 1009/1266 [24:12<06:06,  1.42s/it][A
- 80%|███████▉  | 1010/1266 [24:14<06:08,  1.44s/it][A
- 80%|███████▉  | 1011/1266 [24:15<06:07,  1.44s/it][A
- 80%|███████▉  | 1012/1266 [24:16<06:06,  1.44s/it][A
- 80%|████████  | 1013/1266 [24:18<06:01,  1.43s/it][A
- 80%|████████  | 1014/1266 [24:19<06:00,  1.43s/it][A
- 80%|████████  | 1015/1266 [24:21<05:59,  1.43s/it][A
- 80%|████████  | 1016/1266 [24:22<05:57,  1.43s/it][A
- 80%|████████  | 1017/1266 [24:24<05:53,  1.42s/it][A
- 80%|████████  | 1018/1266 [24:25<05:51,  1.42s/it][A
- 80%|████████  | 1019/1266 [24:26<05:57,  1.45s/it][A
- 81%|████████  | 1020/1266 [24:28<05:51,  1.43s/it][A
- 81%|████████  | 1021/1266 [24:29<05:54,  1.45s/it][A
- 81%|████████  | 1022/1266 [24:31<05:51,  1.44s/it][A
- 81%|████████  | 1023/1266 [24:32<05:47,  1.43s/it][A
- 81%|████████  | 1024/1266 [24:34<05:47,  1.43s/it][A
- 81%|████████  | 1025/1266 [24:35<05:44,  1.43s/it][A
- 81%|████████  | 1026/1266 [24:36<05:40,  1.42s/it][A
- 81%|████████  | 1027/1266 [24:38<05:38,  1.42s/it][A
- 81%|████████  | 1028/1266 [24:39<05:36,  1.41s/it][A
- 81%|████████▏ | 1029/1266 [24:41<05:37,  1.42s/it][A
- 81%|████████▏ | 1030/1266 [24:42<05:36,  1.43s/it][A
- 81%|████████▏ | 1031/1266 [24:44<05:34,  1.42s/it][A
- 82%|████████▏ | 1032/1266 [24:45<05:31,  1.42s/it][A
- 82%|████████▏ | 1033/1266 [24:46<05:29,  1.42s/it][A
- 82%|████████▏ | 1034/1266 [24:48<05:28,  1.41s/it][A
- 82%|████████▏ | 1035/1266 [24:49<05:26,  1.41s/it][A
- 82%|████████▏ | 1036/1266 [24:51<05:23,  1.41s/it][A
- 82%|████████▏ | 1037/1266 [24:52<05:25,  1.42s/it][A
- 82%|████████▏ | 1038/1266 [24:53<05:25,  1.43s/it][A
- 82%|████████▏ | 1039/1266 [24:55<05:23,  1.42s/it][A
- 82%|████████▏ | 1040/1266 [24:56<05:21,  1.42s/it][A
- 82%|████████▏ | 1041/1266 [24:58<05:24,  1.44s/it][A
- 82%|████████▏ | 1042/1266 [24:59<05:27,  1.46s/it][A
- 82%|████████▏ | 1043/1266 [25:01<05:33,  1.50s/it][A
- 82%|████████▏ | 1044/1266 [25:02<05:26,  1.47s/it][A
- 83%|████████▎ | 1045/1266 [25:04<05:20,  1.45s/it][A
- 83%|████████▎ | 1046/1266 [25:05<05:15,  1.44s/it][A
- 83%|████████▎ | 1047/1266 [25:07<05:14,  1.44s/it][A
- 83%|████████▎ | 1048/1266 [25:08<05:11,  1.43s/it][A
- 83%|████████▎ | 1049/1266 [25:09<05:11,  1.43s/it][A
- 83%|████████▎ | 1050/1266 [25:11<05:08,  1.43s/it][A
- 83%|████████▎ | 1051/1266 [25:12<05:07,  1.43s/it][A
- 83%|████████▎ | 1052/1266 [25:14<05:04,  1.42s/it][A
- 83%|████████▎ | 1053/1266 [25:15<05:04,  1.43s/it][A
- 83%|████████▎ | 1054/1266 [25:17<05:03,  1.43s/it][A
- 83%|████████▎ | 1055/1266 [25:18<05:00,  1.42s/it][A
- 83%|████████▎ | 1056/1266 [25:19<05:00,  1.43s/it][A
- 83%|████████▎ | 1057/1266 [25:21<04:58,  1.43s/it][A
- 84%|████████▎ | 1058/1266 [25:22<04:55,  1.42s/it][A
- 84%|████████▎ | 1059/1266 [25:24<04:53,  1.42s/it][A
- 84%|████████▎ | 1060/1266 [25:25<04:51,  1.42s/it][A
- 84%|████████▍ | 1061/1266 [25:26<04:50,  1.42s/it][A
- 84%|████████▍ | 1062/1266 [25:28<04:48,  1.42s/it][A
- 84%|████████▍ | 1063/1266 [25:29<04:48,  1.42s/it][A
- 84%|████████▍ | 1064/1266 [25:31<04:45,  1.42s/it][A
- 84%|████████▍ | 1065/1266 [25:32<04:45,  1.42s/it][A
- 84%|████████▍ | 1066/1266 [25:34<04:44,  1.42s/it][A
- 84%|████████▍ | 1067/1266 [25:35<04:41,  1.42s/it][A
- 84%|████████▍ | 1068/1266 [25:36<04:39,  1.41s/it][A
- 84%|████████▍ | 1069/1266 [25:38<04:42,  1.44s/it][A
- 85%|████████▍ | 1070/1266 [25:39<04:39,  1.43s/it][A
- 85%|████████▍ | 1071/1266 [25:41<04:39,  1.43s/it][A
- 85%|████████▍ | 1072/1266 [25:42<04:36,  1.42s/it][A
- 85%|████████▍ | 1073/1266 [25:44<04:33,  1.42s/it][A
- 85%|████████▍ | 1074/1266 [25:45<04:30,  1.41s/it][A
- 85%|████████▍ | 1075/1266 [25:46<04:31,  1.42s/it][A
- 85%|████████▍ | 1076/1266 [25:48<04:28,  1.41s/it][A
- 85%|████████▌ | 1077/1266 [25:49<04:27,  1.41s/it][A
- 85%|████████▌ | 1078/1266 [25:51<04:24,  1.41s/it][A
- 85%|████████▌ | 1079/1266 [25:52<04:23,  1.41s/it][A
- 85%|████████▌ | 1080/1266 [25:53<04:21,  1.41s/it][A
- 85%|████████▌ | 1081/1266 [25:55<04:20,  1.41s/it][A
- 85%|████████▌ | 1082/1266 [25:56<04:21,  1.42s/it][A
- 86%|████████▌ | 1083/1266 [25:58<04:21,  1.43s/it][A
- 86%|████████▌ | 1084/1266 [25:59<04:22,  1.44s/it][A
- 86%|████████▌ | 1085/1266 [26:01<04:32,  1.51s/it][A
- 86%|████████▌ | 1086/1266 [26:02<04:26,  1.48s/it][A
- 86%|████████▌ | 1087/1266 [26:04<04:24,  1.48s/it][A
- 86%|████████▌ | 1088/1266 [26:05<04:29,  1.51s/it][A
- 86%|████████▌ | 1089/1266 [26:07<04:23,  1.49s/it][A
- 86%|████████▌ | 1090/1266 [26:08<04:20,  1.48s/it][A
- 86%|████████▌ | 1091/1266 [26:10<04:21,  1.49s/it][A
- 86%|████████▋ | 1092/1266 [26:11<04:15,  1.47s/it][A
- 86%|████████▋ | 1093/1266 [26:13<04:14,  1.47s/it][A
- 86%|████████▋ | 1094/1266 [26:14<04:25,  1.55s/it][A
- 86%|████████▋ | 1095/1266 [26:16<04:17,  1.50s/it][A
- 87%|████████▋ | 1096/1266 [26:17<04:10,  1.47s/it][A
- 87%|████████▋ | 1097/1266 [26:19<04:05,  1.45s/it][A
- 87%|████████▋ | 1098/1266 [26:20<04:02,  1.44s/it][A
- 87%|████████▋ | 1099/1266 [26:21<04:04,  1.47s/it][A
- 87%|████████▋ | 1100/1266 [26:23<04:02,  1.46s/it][A
- 87%|████████▋ | 1101/1266 [26:24<03:58,  1.44s/it][A
- 87%|████████▋ | 1102/1266 [26:26<03:55,  1.43s/it][A
- 87%|████████▋ | 1103/1266 [26:27<03:57,  1.45s/it][A
- 87%|████████▋ | 1104/1266 [26:29<03:52,  1.44s/it][A
- 87%|████████▋ | 1105/1266 [26:30<03:52,  1.44s/it][A
- 87%|████████▋ | 1106/1266 [26:32<03:57,  1.49s/it][A
- 87%|████████▋ | 1107/1266 [26:33<03:57,  1.49s/it][A
- 88%|████████▊ | 1108/1266 [26:35<03:53,  1.48s/it][A
- 88%|████████▊ | 1109/1266 [26:36<03:50,  1.47s/it][A
- 88%|████████▊ | 1110/1266 [26:38<03:53,  1.50s/it][A
- 88%|████████▊ | 1111/1266 [26:39<03:52,  1.50s/it][A
- 88%|████████▊ | 1112/1266 [26:41<03:46,  1.47s/it][A
- 88%|████████▊ | 1113/1266 [26:42<03:42,  1.45s/it][A
- 88%|████████▊ | 1114/1266 [26:43<03:38,  1.44s/it][A
- 88%|████████▊ | 1115/1266 [26:45<03:37,  1.44s/it][A
- 88%|████████▊ | 1116/1266 [26:46<03:33,  1.43s/it][A
- 88%|████████▊ | 1117/1266 [26:48<03:35,  1.44s/it][A
- 88%|████████▊ | 1118/1266 [26:49<03:34,  1.45s/it][A
- 88%|████████▊ | 1119/1266 [26:51<03:35,  1.47s/it][A
- 88%|████████▊ | 1120/1266 [26:52<03:41,  1.52s/it][A
- 89%|████████▊ | 1121/1266 [26:54<03:35,  1.49s/it][A
- 89%|████████▊ | 1122/1266 [26:55<03:31,  1.47s/it][A
- 89%|████████▊ | 1123/1266 [26:57<03:29,  1.46s/it][A
- 89%|████████▉ | 1124/1266 [26:58<03:25,  1.45s/it][A
- 89%|████████▉ | 1125/1266 [26:59<03:25,  1.46s/it][A
- 89%|████████▉ | 1126/1266 [27:01<03:29,  1.50s/it][A
- 89%|████████▉ | 1127/1266 [27:02<03:24,  1.47s/it][A
- 89%|████████▉ | 1128/1266 [27:04<03:20,  1.45s/it][A
- 89%|████████▉ | 1129/1266 [27:05<03:18,  1.45s/it][A
- 89%|████████▉ | 1130/1266 [27:07<03:15,  1.44s/it][A
- 89%|████████▉ | 1131/1266 [27:08<03:13,  1.43s/it][A
- 89%|████████▉ | 1132/1266 [27:10<03:14,  1.45s/it][A
- 89%|████████▉ | 1133/1266 [27:11<03:17,  1.48s/it][A
- 90%|████████▉ | 1134/1266 [27:13<03:15,  1.48s/it][A
- 90%|████████▉ | 1135/1266 [27:14<03:13,  1.48s/it][A
- 90%|████████▉ | 1136/1266 [27:16<03:09,  1.46s/it][A
- 90%|████████▉ | 1137/1266 [27:17<03:11,  1.48s/it][A
- 90%|████████▉ | 1138/1266 [27:18<03:06,  1.46s/it][A
- 90%|████████▉ | 1139/1266 [27:20<03:03,  1.44s/it][A
- 90%|█████████ | 1140/1266 [27:21<03:01,  1.44s/it][A
- 90%|█████████ | 1141/1266 [27:23<03:00,  1.44s/it][A
- 90%|█████████ | 1142/1266 [27:24<02:58,  1.44s/it][A
- 90%|█████████ | 1143/1266 [27:26<03:02,  1.49s/it][A
- 90%|█████████ | 1144/1266 [27:27<02:58,  1.46s/it][A
- 90%|█████████ | 1145/1266 [27:29<02:55,  1.45s/it][A
- 91%|█████████ | 1146/1266 [27:30<02:52,  1.44s/it][A
- 91%|█████████ | 1147/1266 [27:31<02:50,  1.43s/it][A
- 91%|█████████ | 1148/1266 [27:33<02:50,  1.45s/it][A
- 91%|█████████ | 1149/1266 [27:34<02:48,  1.44s/it][A
- 91%|█████████ | 1150/1266 [27:36<02:48,  1.46s/it][A
- 91%|█████████ | 1151/1266 [27:37<02:50,  1.48s/it][A
- 91%|█████████ | 1152/1266 [27:39<02:49,  1.48s/it][A
- 91%|█████████ | 1153/1266 [27:40<02:46,  1.47s/it][A
- 91%|█████████ | 1154/1266 [27:42<02:43,  1.46s/it][A
- 91%|█████████ | 1155/1266 [27:43<02:40,  1.44s/it][A
- 91%|█████████▏| 1156/1266 [27:45<02:37,  1.43s/it][A
- 91%|█████████▏| 1157/1266 [27:46<02:35,  1.43s/it][A
- 91%|█████████▏| 1158/1266 [27:47<02:35,  1.44s/it][A
- 92%|█████████▏| 1159/1266 [27:49<02:33,  1.43s/it][A
- 92%|█████████▏| 1160/1266 [27:50<02:32,  1.44s/it][A
- 92%|█████████▏| 1161/1266 [27:52<02:31,  1.44s/it][A
- 92%|█████████▏| 1162/1266 [27:53<02:29,  1.44s/it][A
- 92%|█████████▏| 1163/1266 [27:55<02:26,  1.42s/it][A
- 92%|█████████▏| 1164/1266 [27:56<02:24,  1.42s/it][A
- 92%|█████████▏| 1165/1266 [27:58<02:27,  1.46s/it][A
- 92%|█████████▏| 1166/1266 [27:59<02:24,  1.44s/it][A
- 92%|█████████▏| 1167/1266 [28:00<02:21,  1.43s/it][A
- 92%|█████████▏| 1168/1266 [28:02<02:19,  1.43s/it][A
- 92%|█████████▏| 1169/1266 [28:03<02:17,  1.42s/it][A
- 92%|█████████▏| 1170/1266 [28:05<02:20,  1.47s/it][A
- 92%|█████████▏| 1171/1266 [28:06<02:18,  1.46s/it][A
- 93%|█████████▎| 1172/1266 [28:08<02:16,  1.45s/it][A
- 93%|█████████▎| 1173/1266 [28:09<02:14,  1.44s/it][A
- 93%|█████████▎| 1174/1266 [28:11<02:13,  1.45s/it][A
- 93%|█████████▎| 1175/1266 [28:12<02:11,  1.45s/it][A
- 93%|█████████▎| 1176/1266 [28:13<02:11,  1.46s/it][A
- 93%|█████████▎| 1177/1266 [28:15<02:08,  1.45s/it][A
- 93%|█████████▎| 1178/1266 [28:16<02:06,  1.44s/it][A
- 93%|█████████▎| 1179/1266 [28:18<02:05,  1.44s/it][A
- 93%|█████████▎| 1180/1266 [28:19<02:05,  1.45s/it][A
- 93%|█████████▎| 1181/1266 [28:21<02:03,  1.46s/it][A
- 93%|█████████▎| 1182/1266 [28:22<02:02,  1.46s/it][A
- 93%|█████████▎| 1183/1266 [28:24<02:02,  1.47s/it][A
- 94%|█████████▎| 1184/1266 [28:25<02:03,  1.50s/it][A
- 94%|█████████▎| 1185/1266 [28:27<01:59,  1.48s/it][A
- 94%|█████████▎| 1186/1266 [28:28<01:58,  1.49s/it][A
- 94%|█████████▍| 1187/1266 [28:30<01:56,  1.48s/it][A
- 94%|█████████▍| 1188/1266 [28:31<01:54,  1.47s/it][A
- 94%|█████████▍| 1189/1266 [28:32<01:51,  1.45s/it][A
- 94%|█████████▍| 1190/1266 [28:34<01:49,  1.44s/it][A
- 94%|█████████▍| 1191/1266 [28:35<01:47,  1.43s/it][A
- 94%|█████████▍| 1192/1266 [28:37<01:45,  1.43s/it][A
- 94%|█████████▍| 1193/1266 [28:38<01:48,  1.48s/it][A
- 94%|█████████▍| 1194/1266 [28:40<01:46,  1.47s/it][A
- 94%|█████████▍| 1195/1266 [28:41<01:44,  1.47s/it][A
- 94%|█████████▍| 1196/1266 [28:43<01:41,  1.45s/it][A
- 95%|█████████▍| 1197/1266 [28:44<01:39,  1.44s/it][A
- 95%|█████████▍| 1198/1266 [28:45<01:37,  1.43s/it][A
- 95%|█████████▍| 1199/1266 [28:47<01:36,  1.44s/it][A
- 95%|█████████▍| 1200/1266 [28:48<01:34,  1.43s/it][A
- 95%|█████████▍| 1201/1266 [28:50<01:33,  1.44s/it][A
- 95%|█████████▍| 1202/1266 [28:51<01:31,  1.43s/it][A
- 95%|█████████▌| 1203/1266 [28:53<01:30,  1.43s/it][A
- 95%|█████████▌| 1204/1266 [28:54<01:28,  1.43s/it][A
- 95%|█████████▌| 1205/1266 [28:55<01:27,  1.43s/it][A
- 95%|█████████▌| 1206/1266 [28:57<01:28,  1.47s/it][A
- 95%|█████████▌| 1207/1266 [28:59<01:26,  1.47s/it][A
- 95%|█████████▌| 1208/1266 [29:00<01:24,  1.46s/it][A
- 95%|█████████▌| 1209/1266 [29:01<01:22,  1.44s/it][A
- 96%|█████████▌| 1210/1266 [29:03<01:20,  1.44s/it][A
- 96%|█████████▌| 1211/1266 [29:04<01:20,  1.46s/it][A
- 96%|█████████▌| 1212/1266 [29:06<01:19,  1.47s/it][A
- 96%|█████████▌| 1213/1266 [29:07<01:17,  1.46s/it][A
- 96%|█████████▌| 1214/1266 [29:09<01:16,  1.48s/it][A
- 96%|█████████▌| 1215/1266 [29:10<01:14,  1.46s/it][A
- 96%|█████████▌| 1216/1266 [29:12<01:12,  1.44s/it][A
- 96%|█████████▌| 1217/1266 [29:13<01:10,  1.43s/it][A
- 96%|█████████▌| 1218/1266 [29:14<01:08,  1.43s/it][A
- 96%|█████████▋| 1219/1266 [29:16<01:07,  1.43s/it][A
- 96%|█████████▋| 1220/1266 [29:17<01:05,  1.43s/it][A
- 96%|█████████▋| 1221/1266 [29:19<01:04,  1.43s/it][A
- 97%|█████████▋| 1222/1266 [29:20<01:04,  1.46s/it][A
- 97%|█████████▋| 1223/1266 [29:22<01:02,  1.46s/it][A
- 97%|█████████▋| 1224/1266 [29:23<01:02,  1.50s/it][A
- 97%|█████████▋| 1225/1266 [29:25<01:00,  1.47s/it][A
- 97%|█████████▋| 1226/1266 [29:26<00:58,  1.47s/it][A
- 97%|█████████▋| 1227/1266 [29:28<00:57,  1.46s/it][A
- 97%|█████████▋| 1228/1266 [29:29<00:55,  1.45s/it][A
- 97%|█████████▋| 1229/1266 [29:31<00:54,  1.48s/it][A
- 97%|█████████▋| 1230/1266 [29:32<00:52,  1.46s/it][A
- 97%|█████████▋| 1231/1266 [29:33<00:51,  1.46s/it][A
- 97%|█████████▋| 1232/1266 [29:35<00:49,  1.46s/it][A
- 97%|█████████▋| 1233/1266 [29:37<00:49,  1.50s/it][A
- 97%|█████████▋| 1234/1266 [29:38<00:47,  1.47s/it][A
- 98%|█████████▊| 1235/1266 [29:39<00:45,  1.45s/it][A
- 98%|█████████▊| 1236/1266 [29:41<00:43,  1.45s/it][A
- 98%|█████████▊| 1237/1266 [29:42<00:41,  1.43s/it][A
- 98%|█████████▊| 1238/1266 [29:44<00:40,  1.43s/it][A
- 98%|█████████▊| 1239/1266 [29:45<00:38,  1.42s/it][A
- 98%|█████████▊| 1240/1266 [29:46<00:37,  1.43s/it][A
- 98%|█████████▊| 1241/1266 [29:48<00:35,  1.43s/it][A
- 98%|█████████▊| 1242/1266 [29:49<00:34,  1.44s/it][A
- 98%|█████████▊| 1243/1266 [29:51<00:33,  1.45s/it][A
- 98%|█████████▊| 1244/1266 [29:52<00:32,  1.47s/it][A
- 98%|█████████▊| 1245/1266 [29:54<00:30,  1.46s/it][A
- 98%|█████████▊| 1246/1266 [29:55<00:28,  1.45s/it][A
- 98%|█████████▊| 1247/1266 [29:57<00:27,  1.44s/it][A
- 99%|█████████▊| 1248/1266 [29:58<00:25,  1.43s/it][A
- 99%|█████████▊| 1249/1266 [29:59<00:24,  1.42s/it][A
- 99%|█████████▊| 1250/1266 [30:01<00:22,  1.43s/it][A
- 99%|█████████▉| 1251/1266 [30:02<00:21,  1.45s/it][A
- 99%|█████████▉| 1252/1266 [30:04<00:20,  1.44s/it][A
- 99%|█████████▉| 1253/1266 [30:05<00:18,  1.44s/it][A
- 99%|█████████▉| 1254/1266 [30:07<00:17,  1.44s/it][A
- 99%|█████████▉| 1255/1266 [30:08<00:15,  1.43s/it][A
- 99%|█████████▉| 1256/1266 [30:09<00:14,  1.42s/it][A
- 99%|█████████▉| 1257/1266 [30:11<00:12,  1.42s/it][A
- 99%|█████████▉| 1258/1266 [30:12<00:11,  1.42s/it][A
- 99%|█████████▉| 1259/1266 [30:14<00:10,  1.45s/it][A
-100%|█████████▉| 1260/1266 [30:15<00:08,  1.44s/it][A
-100%|█████████▉| 1261/1266 [30:17<00:07,  1.43s/it][A
-100%|█████████▉| 1262/1266 [30:18<00:05,  1.43s/it][A
-100%|█████████▉| 1263/1266 [30:19<00:04,  1.43s/it][A
-100%|█████████▉| 1264/1266 [30:21<00:02,  1.44s/it][A
-100%|█████████▉| 1265/1266 [30:22<00:01,  1.43s/it][A
-100%|██████████| 1266/1266 [30:24<00:00,  1.44s/it][A                                                       
-                                                   [A{'eval_loss': 0.05856863781809807, 'eval_runtime': 1826.1071, 'eval_samples_per_second': 5.545, 'eval_steps_per_second': 0.693, 'epoch': 0.14}
-  5%|▍         | 50/1068 [2:36:28<42:28:44, 150.22s/it]
-100%|██████████| 1266/1266 [30:24<00:00,  1.44s/it][A
-                                                   [A[INFO|trainer.py:4289] 2026-07-17 19:11:33,326 >> Saving model checkpoint to saves/qwen25math7b-factorized-prm-1050q-full/checkpoint-50
-[INFO|configuration_utils.py:491] 2026-07-17 19:11:33,339 >> Configuration saved in saves/qwen25math7b-factorized-prm-1050q-full/checkpoint-50/config.json
-[INFO|configuration_utils.py:826] 2026-07-17 19:11:33,344 >> Configuration saved in saves/qwen25math7b-factorized-prm-1050q-full/checkpoint-50/generation_config.json
-[INFO|modeling_utils.py:4305] 2026-07-17 19:12:01,711 >> The model is bigger than the maximum size per checkpoint (5GB) and is going to be split in 4 checkpoint shards. You can find where each parameters has been saved in the index located at saves/qwen25math7b-factorized-prm-1050q-full/checkpoint-50/model.safetensors.index.json.
-[INFO|tokenization_utils_base.py:2394] 2026-07-17 19:12:01,718 >> chat template saved in saves/qwen25math7b-factorized-prm-1050q-full/checkpoint-50/chat_template.jinja
-[INFO|tokenization_utils_base.py:2563] 2026-07-17 19:12:01,723 >> tokenizer config file saved in saves/qwen25math7b-factorized-prm-1050q-full/checkpoint-50/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2572] 2026-07-17 19:12:01,728 >> Special tokens file saved in saves/qwen25math7b-factorized-prm-1050q-full/checkpoint-50/special_tokens_map.json
-[rank7]: Traceback (most recent call last):
-[rank7]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/torch/serialization.py", line 944, in save
-[rank7]:     _save(
-[rank7]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/torch/serialization.py", line 1216, in _save
-[rank7]:     zip_file.write_record(name, storage, num_bytes)
-[rank7]: RuntimeError: [enforce fail at inline_container.cc:815] . PytorchStreamWriter failed writing file data/6: file write failed
-
-[rank7]: During handling of the above exception, another exception occurred:
-
-[rank7]: Traceback (most recent call last):
-[rank7]:   File "/public/home/ljt/lzm/code/PRM/LLaMA-Factory/src/llamafactory/launcher.py", line 185, in <module>
-[rank7]:     run_exp()
-[rank7]:   File "/public/home/ljt/lzm/code/PRM/LLaMA-Factory/src/llamafactory/train/tuner.py", line 156, in run_exp
-[rank7]:     _training_function(config={"args": args, "callbacks": callbacks})
-[rank7]:   File "/public/home/ljt/lzm/code/PRM/LLaMA-Factory/src/llamafactory/train/tuner.py", line 124, in _training_function
-[rank7]:     run_sft(model_args, data_args, training_args, finetuning_args, generating_args, callbacks)
-[rank7]:   File "/public/home/ljt/lzm/code/PRM/LLaMA-Factory/src/llamafactory/train/sft/workflow.py", line 121, in run_sft
-[rank7]:     train_result = trainer.train(resume_from_checkpoint=training_args.resume_from_checkpoint)
-[rank7]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank7]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/transformers/trainer.py", line 2328, in train
-[rank7]:     return inner_training_loop(
-[rank7]:            ^^^^^^^^^^^^^^^^^^^^
-[rank7]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/transformers/trainer.py", line 2754, in _inner_training_loop
-[rank7]:     self._maybe_log_save_evaluate(
-[rank7]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/transformers/trainer.py", line 3234, in _maybe_log_save_evaluate
-[rank7]:     self._save_checkpoint(model, trial)
-[rank7]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/transformers/trainer.py", line 3342, in _save_checkpoint
-[rank7]:     self._save_optimizer_and_scheduler(output_dir)
-[rank7]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/transformers/trainer.py", line 3458, in _save_optimizer_and_scheduler
-[rank7]:     self.model_wrapped.save_checkpoint(output_dir)
-[rank7]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/deepspeed/runtime/engine.py", line 4151, in save_checkpoint
-[rank7]:     self._save_zero_checkpoint(save_dir, tag)
-[rank7]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/deepspeed/runtime/engine.py", line 4628, in _save_zero_checkpoint
-[rank7]:     self.checkpoint_engine.save(zero_sd, zero_checkpoint_name)
-[rank7]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/deepspeed/runtime/checkpoint_engine/torch_checkpoint_engine.py", line 32, in save
-[rank7]:     torch.save(state_dict, path, _use_new_zipfile_serialization=self.zipfile_serialization)
-[rank7]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/torch/serialization.py", line 943, in save
-[rank7]:     with _open_zipfile_writer(f) as opened_zipfile:
-[rank7]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/torch/serialization.py", line 784, in __exit__
-[rank7]:     self.file_like.write_end_of_file()
-[rank7]: RuntimeError: [enforce fail at inline_container.cc:626] . unexpected pos 7615619904 vs 7615619800
-[rank5]: Traceback (most recent call last):
-[rank5]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/torch/serialization.py", line 944, in save
-[rank5]:     _save(
-[rank5]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/torch/serialization.py", line 1216, in _save
-[rank5]:     zip_file.write_record(name, storage, num_bytes)
-[rank5]: RuntimeError: [enforce fail at inline_container.cc:815] . PytorchStreamWriter failed writing file data/6: file write failed
-
-[rank5]: During handling of the above exception, another exception occurred:
-
-[rank5]: Traceback (most recent call last):
-[rank5]:   File "/public/home/ljt/lzm/code/PRM/LLaMA-Factory/src/llamafactory/launcher.py", line 185, in <module>
-[rank5]:     run_exp()
-[rank5]:   File "/public/home/ljt/lzm/code/PRM/LLaMA-Factory/src/llamafactory/train/tuner.py", line 156, in run_exp
-[rank5]:     _training_function(config={"args": args, "callbacks": callbacks})
-[rank5]:   File "/public/home/ljt/lzm/code/PRM/LLaMA-Factory/src/llamafactory/train/tuner.py", line 124, in _training_function
-[rank5]:     run_sft(model_args, data_args, training_args, finetuning_args, generating_args, callbacks)
-[rank5]:   File "/public/home/ljt/lzm/code/PRM/LLaMA-Factory/src/llamafactory/train/sft/workflow.py", line 121, in run_sft
-[rank5]:     train_result = trainer.train(resume_from_checkpoint=training_args.resume_from_checkpoint)
-[rank5]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank5]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/transformers/trainer.py", line 2328, in train
-[rank5]:     return inner_training_loop(
-[rank5]:            ^^^^^^^^^^^^^^^^^^^^
-[rank5]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/transformers/trainer.py", line 2754, in _inner_training_loop
-[rank5]:     self._maybe_log_save_evaluate(
-[rank5]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/transformers/trainer.py", line 3234, in _maybe_log_save_evaluate
-[rank5]:     self._save_checkpoint(model, trial)
-[rank5]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/transformers/trainer.py", line 3342, in _save_checkpoint
-[rank5]:     self._save_optimizer_and_scheduler(output_dir)
-[rank5]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/transformers/trainer.py", line 3458, in _save_optimizer_and_scheduler
-[rank5]:     self.model_wrapped.save_checkpoint(output_dir)
-[rank5]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/deepspeed/runtime/engine.py", line 4151, in save_checkpoint
-[rank5]:     self._save_zero_checkpoint(save_dir, tag)
-[rank5]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/deepspeed/runtime/engine.py", line 4628, in _save_zero_checkpoint
-[rank5]:     self.checkpoint_engine.save(zero_sd, zero_checkpoint_name)
-[rank5]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/deepspeed/runtime/checkpoint_engine/torch_checkpoint_engine.py", line 32, in save
-[rank5]:     torch.save(state_dict, path, _use_new_zipfile_serialization=self.zipfile_serialization)
-[rank5]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/torch/serialization.py", line 943, in save
-[rank5]:     with _open_zipfile_writer(f) as opened_zipfile:
-[rank5]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/torch/serialization.py", line 784, in __exit__
-[rank5]:     self.file_like.write_end_of_file()
-[rank5]: RuntimeError: [enforce fail at inline_container.cc:626] . unexpected pos 7615619904 vs 7615619800
-[rank6]: Traceback (most recent call last):
-[rank6]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/torch/serialization.py", line 944, in save
-[rank6]:     _save(
-[rank6]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/torch/serialization.py", line 1216, in _save
-[rank6]:     zip_file.write_record(name, storage, num_bytes)
-[rank6]: RuntimeError: [enforce fail at inline_container.cc:815] . PytorchStreamWriter failed writing file data/6: file write failed
-
-[rank6]: During handling of the above exception, another exception occurred:
-
-[rank6]: Traceback (most recent call last):
-[rank6]:   File "/public/home/ljt/lzm/code/PRM/LLaMA-Factory/src/llamafactory/launcher.py", line 185, in <module>
-[rank6]:     run_exp()
-[rank6]:   File "/public/home/ljt/lzm/code/PRM/LLaMA-Factory/src/llamafactory/train/tuner.py", line 156, in run_exp
-[rank6]:     _training_function(config={"args": args, "callbacks": callbacks})
-[rank6]:   File "/public/home/ljt/lzm/code/PRM/LLaMA-Factory/src/llamafactory/train/tuner.py", line 124, in _training_function
-[rank6]:     run_sft(model_args, data_args, training_args, finetuning_args, generating_args, callbacks)
-[rank6]:   File "/public/home/ljt/lzm/code/PRM/LLaMA-Factory/src/llamafactory/train/sft/workflow.py", line 121, in run_sft
-[rank6]:     train_result = trainer.train(resume_from_checkpoint=training_args.resume_from_checkpoint)
-[rank6]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank6]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/transformers/trainer.py", line 2328, in train
-[rank6]:     return inner_training_loop(
-[rank6]:            ^^^^^^^^^^^^^^^^^^^^
-[rank6]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/transformers/trainer.py", line 2754, in _inner_training_loop
-[rank6]:     self._maybe_log_save_evaluate(
-[rank6]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/transformers/trainer.py", line 3234, in _maybe_log_save_evaluate
-[rank6]:     self._save_checkpoint(model, trial)
-[rank6]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/transformers/trainer.py", line 3342, in _save_checkpoint
-[rank6]:     self._save_optimizer_and_scheduler(output_dir)
-[rank6]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/transformers/trainer.py", line 3458, in _save_optimizer_and_scheduler
-[rank6]:     self.model_wrapped.save_checkpoint(output_dir)
-[rank6]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/deepspeed/runtime/engine.py", line 4151, in save_checkpoint
-[rank6]:     self._save_zero_checkpoint(save_dir, tag)
-[rank6]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/deepspeed/runtime/engine.py", line 4628, in _save_zero_checkpoint
-[rank6]:     self.checkpoint_engine.save(zero_sd, zero_checkpoint_name)
-[rank6]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/deepspeed/runtime/checkpoint_engine/torch_checkpoint_engine.py", line 32, in save
-[rank6]:     torch.save(state_dict, path, _use_new_zipfile_serialization=self.zipfile_serialization)
-[rank6]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/torch/serialization.py", line 943, in save
-[rank6]:     with _open_zipfile_writer(f) as opened_zipfile:
-[rank6]:   File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/torch/serialization.py", line 784, in __exit__
-[rank6]:     self.file_like.write_end_of_file()
-[rank6]: RuntimeError: [enforce fail at inline_container.cc:626] . unexpected pos 7615619904 vs 7615619800
-W0717 19:13:55.652000 42285 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 42348 closing signal SIGTERM
-W0717 19:13:55.674000 42285 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 42349 closing signal SIGTERM
-W0717 19:13:55.684000 42285 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 42350 closing signal SIGTERM
-W0717 19:13:55.697000 42285 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 42351 closing signal SIGTERM
-W0717 19:13:55.707000 42285 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 42352 closing signal SIGTERM
-W0717 19:13:55.717000 42285 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 42354 closing signal SIGTERM
-W0717 19:13:55.737000 42285 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 42355 closing signal SIGTERM
-E0717 19:14:06.799000 42285 site-packages/torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 5 (pid: 42353) of binary: /public/home/ljt/anaconda3/envs/lf311/bin/python
-Traceback (most recent call last):
-  File "/public/home/ljt/anaconda3/envs/lf311/bin/torchrun", line 6, in <module>
-    sys.exit(main())
-             ^^^^^^
-  File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
-    return f(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^
-  File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/torch/distributed/run.py", line 918, in main
-    run(args)
-  File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/torch/distributed/run.py", line 909, in run
-    elastic_launch(
-  File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
-    return launch_agent(self._config, self._entrypoint, list(args))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
-    raise ChildFailedError(
-torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
-============================================================
-/public/home/ljt/lzm/code/PRM/LLaMA-Factory/src/llamafactory/launcher.py FAILED
-------------------------------------------------------------
-Failures:
-  <NO_OTHER_FAILURES>
-------------------------------------------------------------
-Root Cause (first observed failure):
-[0]:
-  time      : 2026-07-17_19:13:55
-  host      : gpu09
-  rank      : 5 (local_rank: 5)
-  exitcode  : 1 (pid: 42353)
-  error_file: <N/A>
-  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
-============================================================
-Traceback (most recent call last):
-  File "/public/home/ljt/anaconda3/envs/lf311/bin/llamafactory-cli", line 8, in <module>
-    sys.exit(main())
-             ^^^^^^
-  File "/public/home/ljt/lzm/code/PRM/LLaMA-Factory/src/llamafactory/cli.py", line 24, in main
-    launcher.launch()
-  File "/public/home/ljt/lzm/code/PRM/LLaMA-Factory/src/llamafactory/launcher.py", line 115, in launch
-    process = subprocess.run(
-              ^^^^^^^^^^^^^^^
-  File "/public/home/ljt/anaconda3/envs/lf311/lib/python3.11/subprocess.py", line 569, in run
-    raise CalledProcessError(retcode, process.args,
-subprocess.CalledProcessError: Command '['torchrun', '--nnodes', '1', '--node_rank', '0', '--nproc_per_node', '8', '--master_addr', '127.0.0.1', '--master_port', '49250', '/public/home/ljt/lzm/code/PRM/LLaMA-Factory/src/llamafactory/launcher.py', '/public/home/ljt/lzm/code/PRM/prm_sft.yaml']' returned non-zero exit status 1.

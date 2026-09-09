@@ -1,4 +1,0 @@
-/public/home/ljt/lzm/code/PRM/runs/train_data_test/sft_dataset_1050q.jsonl
-==> [1/4] 校验数据集
-  样本数: 101254, 缺字段: 0
-==> [2/4] token 长度速查 (确认 cutoff_len 够用)

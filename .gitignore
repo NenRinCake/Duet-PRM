@@ -3,3 +3,11 @@ __pycache__/
 torchinductor_*/
 *.pyc
 *.log
+.env
+.env.*
+saves/
+checkpoints/
+*.pt
+*.pth
+*.bin
+*.safetensors

@@ -29,6 +29,8 @@ MAX_MODEL_LEN="${MAX_MODEL_LEN:-12288}"
 MAX_GEN="${MAX_GEN:-512}"
 EXTRA_ARGS="${EXTRA_ARGS:-}"   # 例如 "--dual_score" 或 "--dual_score --plan_combine multiply"
 
+mkdir -p "$(dirname "$OUT")"
+
 echo "============================================================"
 echo "数据并行评测: mode=$MODE, $NUM_SHARDS 张卡各独立打分 1/$NUM_SHARDS 的题"
 echo "============================================================"

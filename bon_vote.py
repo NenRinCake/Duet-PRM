@@ -204,8 +204,13 @@ def score_scalar(by_prob, problems, args):
 
 # ---------------- 打分: skywork ----------------
 def score_skywork(by_prob, problems, args):
+    import sys
     import torch
     from transformers import AutoTokenizer
+    skywork_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                               "skywork-o1-prm-inference-main")
+    if skywork_dir not in sys.path:
+        sys.path.insert(0, skywork_dir)
     from model_utils.prm_model import PRM_MODEL
     from model_utils.io_utils import prepare_input, derive_step_rewards
     tok = AutoTokenizer.from_pretrained(args.prm, trust_remote_code=True)
@@ -215,7 +220,6 @@ def score_skywork(by_prob, problems, args):
     def _scores(problem, steps):
         response = "\n\n".join(f"[{s['claimed']}] {s['code']}\n{s['exec']}" for s in steps)
         ids, mask, reward_idxs = prepare_input(problem, response, tokenizer=tok, step_token="\n\n")
-        # ids = torch.tensor([ids]).to(model.device)
         device = next(model.parameters()).device
         ids = torch.tensor([ids]).to(device)
         with torch.no_grad():
