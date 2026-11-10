@@ -337,7 +337,7 @@ def score_scalar(by_prob, problems, args):
     total = sum(len(v) for v in by_prob.values()); done = 0
     tag = f"[shard {args.shard_id}] " if args.num_shards > 1 else ""
     for prob_idx, cand in by_prob.items():
-        ptext = problems[prob_idx]["problem"] if problems else cand[0]["plan"][0]["desc"]
+        ptext = (problems[prob_idx].get("problem") or problems[prob_idx].get("question")) if problems else cand[0]["plan"][0]["desc"]
         for tpos, t in enumerate(cand):
             try:
                 scs = _scalar_step_scores(ptext, t["plan"], t["steps"])
@@ -382,7 +382,7 @@ def score_skywork(by_prob, problems, args):
     total = sum(len(v) for v in by_prob.values()); done = 0
     tag = f"[shard {args.shard_id}] " if args.num_shards > 1 else ""
     for prob_idx, cand in by_prob.items():
-        ptext = problems[prob_idx]["problem"] if problems else cand[0]["plan"][0]["desc"]
+        ptext = (problems[prob_idx].get("problem") or problems[prob_idx].get("question")) if problems else cand[0]["plan"][0]["desc"]
         for tpos, t in enumerate(cand):
             try:
                 scs = _sky_step_scores(ptext, t["steps"])
