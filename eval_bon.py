@@ -233,7 +233,10 @@ def score_ours(by_prob, problems, args):
     skipped_long = []
     budget = args.max_model_len - args.max_gen - 16
     for prob_idx, cand in by_prob.items():
-        ptext = problems[prob_idx]["problem"] if problems else cand[0]["plan"][0]["desc"]
+        item = problems[prob_idx]
+        ptext = item.get("problem") or item.get("question")
+        if ptext is None:
+            raise KeyError(f"Problem {prob_idx} contains neither 'problem' nor 'question'")
         for tpos, t in enumerate(cand):
             for i, s in enumerate(t["steps"]):
                 p = chat(builder(ptext, t["plan"], t["steps"][:i], s))
